@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="0dp"
+    android:background="#ffffff"
+    tools:context="com.lovecareworks.healthcarepersonnel.RegistrationActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/registrationcontainer"
+        android:layout_above="@+id/buttons_layout">
+
+    </FrameLayout>
+    <LinearLayout
+        android:id="@+id/buttons_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_signup_cancel"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_action_height"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryLight"
+            android:text="@string/cancel"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/btn_signup_confirm"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_action_height"
+            android:layout_weight="1"
+            android:text="Next"
+            android:background="@drawable/buttonborder"
+            android:textColor="@color/colorPrimary" />
+
+
+    </LinearLayout>
+</RelativeLayout>

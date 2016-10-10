@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="5dip" >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/button_material_light"
+            android:clickable="false" >
+
+            <RelativeLayout
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                android:clickable="false" >
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="bottom"
+                    android:padding="10dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:clickable="false" >
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/linearLayout7"
+                        android:paddingTop="5dp"
+                        android:paddingLeft="5dp"
+                        android:paddingEnd="5dp">
+
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:shrinkColumns="*">
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/sch_hols_startDate"
+                                    android:layout_column="0"
+                                    android:text="Sun, 7 Jun 2016"
+                                    android:singleLine="true"
+                                    android:textSize="16dp"
+                                    android:textColor="#050303"
+                                    android:shadowColor="#d8c1c1" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="TO"
+                                    android:id="@+id/sch_hols_to"
+                                    android:layout_column="1"
+                                    android:gravity="right"
+                                    android:textColor="#050303"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="10dp" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/sch_hols_endDate"
+                                    android:layout_column="0"
+                                    android:text="Sun, 7 Jun 2016"
+                                    android:singleLine="true"
+                                    android:textSize="16dp"
+                                    android:textColor="#050303"
+                                    android:shadowColor="#d8c1c1" />
+
+                            </TableRow>
+
+                        </TableLayout>
+
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:shrinkColumns="*" >
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" >
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="08:00 am "
+                                    android:id="@+id/sch_hols_startTime"
+                                    android:layout_column="0"
+                                    android:gravity="right"
+                                    android:textColor="#050303" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="TO"
+                                    android:id="@+id/textView30"
+                                    android:layout_column="1"
+                                    android:gravity="right"
+                                    android:textColor="#050303"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="10dp" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="10:00 pm"
+                                    android:id="@+id/sch_hols_endTime"
+                                    android:layout_column="2"
+                                    android:gravity="right"
+                                    android:textColor="#050303" />
+                            </TableRow>
+                        </TableLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

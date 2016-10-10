@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:minWidth="300dp">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Employment Background"
+        android:id="@+id/textView6"
+        android:layout_gravity="center_horizontal"
+        android:singleLine="true"
+        android:padding="12dp"
+        android:background="@color/colorPrimary"
+        android:textColor="#ffffff"
+        android:textSize="18dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollView"
+            android:fillViewport="true"
+            android:minHeight="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/tableLayout3">
+
+            <ListView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:transcriptMode="alwaysScroll"
+                android:id="@+id/listView"
+                android:padding="10dp" />
+        </ScrollView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="No Employment History Given Click Add to enter new employment history"
+            android:id="@+id/emptyNoteb"
+            android:textColor="#c21e1e"
+            android:visibility="visible"
+            android:layout_above="@+id/tableLayout3"
+            android:layout_alignParentStart="true"
+            android:textSize="12dp"
+            android:singleLine="false"
+            android:padding="10dp"
+            android:textAlignment="center" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*"
+            android:id="@+id/tableLayout3"
+            android:layout_alignParentBottom="true" >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true" >
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add"
+                    android:id="@+id/buttonb"
+                    android:textColor="#ffffff"
+                    android:drawablePadding="10dp"
+                    android:drawableEnd="@drawable/ic_add_24dp"
+                    android:layout_alignTop="@+id/button2b"
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@+id/button2b"
+                    android:background="@color/colorPrimary"
+                    android:textAlignment="textStart"
+                    android:paddingLeft="10dp"
+                    android:padding="10dp" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Close"
+                    android:id="@+id/button2b"
+                    android:layout_alignTop="@+id/button3b"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="#ffffff"
+                    android:background="@color/colorPrimary"
+                    android:layout_marginLeft="2dp"
+                    android:drawableEnd="@drawable/ic_clear_24dp"
+                    android:padding="10dp"
+                    android:layout_marginRight="2dp"
+                    android:textAlignment="textStart" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ok"
+                    android:id="@+id/button3b"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_toEndOf="@+id/button2b"
+                    android:textColor="#ffffff"
+                    android:drawableEnd="@drawable/ic_check_24dp"
+                    android:padding="10dp"
+                    android:background="@color/colorPrimary"
+                    android:textAlignment="textStart" />
+            </TableRow>
+        </TableLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

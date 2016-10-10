@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+    defaultConfig {
+        applicationId 'com.lovecareworks.healthcarepersonnel'
+        minSdkVersion 17
+        targetSdkVersion 23
+        versionCode 10
+        versionName '2.5'
+        multiDexEnabled true
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:support-v4:23.4.0'
+    compile 'com.android.support:design:23.4.0'
+    compile 'com.google.android.gms:play-services:9.4.0'
+    compile 'com.mikhaellopez:circularimageview:3.0.1'
+    compile 'com.android.support:multidex:1.0.0'
+    compile 'com.wdullaer:materialdatetimepicker:2.3.0'
+    compile 'com.mikepenz.iconics:library:1.0.0'
+    compile 'com.mikepenz.materialdrawer:library:2.9.8'
+    compile 'com.squareup.retrofit2:retrofit:2.0.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0'
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.0'
+    compile 'io.reactivex:rxandroid:1.1.0'
+    compile 'io.reactivex:rxjava:1.1.0'
+    compile 'com.paypal.sdk:paypal-android-sdk:2.14.1'
+    compile 'com.github.d-max:spots-dialog:0.7'
+    compile 'com.eightbitlab:blurview:1.1.2'
+    compile 'org.apache.commons:commons-io:1.3.2'
+    compile 'com.ramotion.foldingcell:folding-cell:1.0.1'
+    compile 'com.squareup.retrofit2:converter-scalars:2.0.0'
+    compile 'com.akexorcist:googledirectionlibrary:1.0.4'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+}

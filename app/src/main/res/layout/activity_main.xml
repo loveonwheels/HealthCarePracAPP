@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.lovecareworks.healthcarepersonnel.MainActivity"
+    android:background="@drawable/hcpbk1">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/loaderframe"
+        android:background="#77050505"
+        android:clickable="false"
+        android:focusableInTouchMode="true">
+
+
+    </FrameLayout>
+</RelativeLayout>

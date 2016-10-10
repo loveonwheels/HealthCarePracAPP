@@ -1,0 +1,368 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.lovecareworks.healthcarepersonnel.dialogs.schedule_dialog">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="10dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/button_material_light"
+            android:padding="1dp"
+            android:weightSum="1"
+            android:layout_above="@+id/btnRequest"
+            android:layout_alignParentTop="true">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/colorPrimary">
+
+                <RelativeLayout
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/ic_clear_white_24dp"
+                    android:id="@+id/btnCloseDialog"></RelativeLayout>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mon, 24 Jun 2016"
+                        android:id="@+id/textView39"
+                        android:textAlignment="center"
+                        android:layout_gravity="center"
+                        android:textColor="#ffffff"
+                        android:textStyle="bold" />
+                </TableRow>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:background="#ffffff">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/scrollView5" >
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:text="Patient&apos;s Name"
+                                    android:id="@+id/textView110"
+                                    android:textSize="13dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:text="fgfgFred Ollison"
+                                    android:id="@+id/sch_dia_pat_name"
+                                    android:textColor="@color/abc_search_url_text_pressed"
+                                    android:textSize="14dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:text="Client&apos;s Name"
+                                    android:id="@+id/textView112"
+                                    android:textSize="13dp"
+                                    android:layout_marginTop="10dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:text="Mark Jacobs"
+                                    android:id="@+id/sch_dia_cli_name"
+                                    android:textColor="@color/abc_search_url_text_pressed"
+                                    android:textSize="14dp" />
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TableLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:stretchColumns="*">
+
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <LinearLayout
+                                        android:orientation="vertical"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textAppearance="?android:attr/textAppearanceSmall"
+                                            android:text="Date"
+                                            android:id="@+id/textView92"
+                                            android:textSize="13dp"
+                                            android:layout_marginTop="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textAppearance="?android:attr/textAppearanceMedium"
+                                            android:text="Mon , 24 Jun 2016"
+                                            android:id="@+id/sch_dia_date"
+                                            android:textColor="@color/abc_search_url_text_pressed"
+                                            android:textSize="14dp" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:orientation="vertical"
+                                        android:layout_width="120dp"
+                                        android:layout_height="match_parent">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textAppearance="?android:attr/textAppearanceSmall"
+                                            android:text="Time"
+                                            android:id="@+id/textView91"
+                                            android:textSize="13dp"
+                                            android:layout_marginTop="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textAppearance="?android:attr/textAppearanceMedium"
+                                            android:text="11:00 AM"
+                                            android:id="@+id/sch_dia_time"
+                                            android:textColor="@color/abc_search_url_text_pressed"
+                                            android:layout_gravity="left"
+                                            android:textSize="14dp" />
+                                    </LinearLayout>
+                                </TableRow>
+                            </TableLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TableLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:stretchColumns="*" >
+
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+
+                                    <LinearLayout
+                                        android:orientation="vertical"
+                                        android:layout_width="10dp"
+                                        android:layout_height="match_parent" >
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textAppearance="?android:attr/textAppearanceSmall"
+                                            android:text="Gender"
+                                            android:id="@+id/textView120"
+                                            android:textSize="13dp"
+                                            android:layout_marginTop="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textAppearance="?android:attr/textAppearanceMedium"
+                                            android:text="Male"
+                                            android:id="@+id/sch_dia_gender"
+                                            android:textColor="@color/abc_search_url_text_pressed"
+                                            android:layout_gravity="left"
+                                            android:textSize="14dp" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:orientation="vertical"
+                                        android:layout_width="10dp"
+                                        android:layout_height="match_parent" >
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textAppearance="?android:attr/textAppearanceSmall"
+                                            android:text="Relationship"
+                                            android:id="@+id/textView49"
+                                            android:textSize="13dp"
+                                            android:layout_marginTop="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textAppearance="?android:attr/textAppearanceMedium"
+                                            android:text="Father - in - law"
+                                            android:id="@+id/sch_dia_rel"
+                                            android:textColor="@color/abc_search_url_text_pressed"
+                                            android:layout_gravity="left"
+                                            android:textSize="16dp"
+                                            android:singleLine="true" />
+                                    </LinearLayout>
+                                </TableRow>
+                            </TableLayout>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="Address"
+                            android:id="@+id/textView57"
+                            android:textSize="13dp"
+                            android:layout_marginTop="10dp" />
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="B-9-12 Strenling condomium , Kelana Jaya, Malaysia"
+                                android:id="@+id/sch_dia_add"
+                                android:textColor="@color/abc_search_url_text_pressed"
+                                android:textSize="14dp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="Service Description"
+                            android:id="@+id/textView50"
+                            android:textSize="13dp"
+                            android:layout_marginTop="10dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="B-9-12 Strenling condomium , Kelana Jaya, Malaysia"
+                            android:id="@+id/sch_dia_service_des"
+                            android:textColor="@color/abc_search_url_text_pressed"
+                            android:textSize="14dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="Ailment Description"
+                            android:id="@+id/textView48"
+                            android:textSize="13dp"
+                            android:layout_marginTop="10dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="B-9-12 Strenling condomium , Kelana Jaya, Malaysia"
+                            android:id="@+id/sch_dia_ail"
+                            android:textColor="@color/abc_search_url_text_pressed"
+                            android:textSize="14dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="Additional Information"
+                            android:id="@+id/textView54"
+                            android:textSize="13dp"
+                            android:layout_marginTop="10dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="he is crazy, he is crazy, he is crazy, he is crazy, he is crazy,he is crazy, he is crazy, he is crazy, he is crazy, he is crazy"
+                            android:id="@+id/sch_dia_info"
+                            android:textColor="@color/abc_search_url_text_pressed"
+                            android:textSize="14dp" />
+
+                    </LinearLayout>
+                </ScrollView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Request Appointment Reschedule"
+            android:id="@+id/btnRequest"
+            android:background="@color/cast_libraries_material_featurehighlight_outer_highlight_default_color"
+            android:textColor="#ffffff"
+            android:textSize="15dp"
+            android:layout_above="@+id/btnCanel"
+            android:layout_alignParentStart="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancel Appointment"
+            android:id="@+id/btnCanel"
+            android:background="@color/color_red"
+            android:textColor="#ffffff"
+            android:textSize="15dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp" />
+    </RelativeLayout>
+
+</FrameLayout>

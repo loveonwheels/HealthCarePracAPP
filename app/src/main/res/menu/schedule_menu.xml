@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="Go to date"
+        android:visible="true" />
+    <item
+        android:id="@+id/action_gototoday"
+        android:orderInCategory="101"
+        android:title="Go to today"
+        android:visible="true" />
+    <item
+        android:id="@+id/action_myschedule"
+        android:orderInCategory="102"
+        android:title="My Schedule"
+        android:visible="true" />
+
+</menu>
