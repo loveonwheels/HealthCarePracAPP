@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#a81783</color>
+    <color name="colorPrimary">#8b1f6f</color>
     <color name="colorPrimaryDark">#7b0a5e</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorPrimaryLight">#a42872</color>
     <color name="black">#000000</color>
-
+    <color name="activeday">#ff009688</color>
+    <color name="disabledday">#00ffffff</color>
     <color name="color_red">#f6442c</color>
 </resources>

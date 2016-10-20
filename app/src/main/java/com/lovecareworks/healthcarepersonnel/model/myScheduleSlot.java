@@ -15,6 +15,35 @@ public class myScheduleSlot implements Parcelable{
     public int scheduleType = 0;
     public String startDate = "";
     public String endDate= "";
+    public String patientName = "";
+    public String clientName= "";
+    public String service = "";
+
+    public String getPatientName() {
+        return patientName;
+    }
+
+    public void setPatientName(String patientName) {
+        this.patientName = patientName;
+    }
+
+    public String getClientName() {
+        return clientName;
+    }
+
+    public void setClientName(String clientName) {
+        this.clientName = clientName;
+    }
+
+    public String getService() {
+        return service;
+    }
+
+    public void setService(String service) {
+        this.service = service;
+    }
+
+
 
     public myScheduleSlot(String slotDate, int startSlot, int endSlot, int scheduleType) {
         SlotDate = slotDate;
@@ -23,13 +52,27 @@ public class myScheduleSlot implements Parcelable{
         this.scheduleType = scheduleType;
     }
 
+    public myScheduleSlot(int startSlot, int endSlot, int scheduleType, String startDate, String endDate,String patientName, String clientName,String service) {
+        this.startSlot = startSlot;
+        this.endSlot = endSlot;
+        this.scheduleType = scheduleType;
+        this.startDate = startDate;
+        this.endDate = endDate;
+
+        this.patientName = patientName;
+        this.clientName = clientName;
+        this.service = service;
+    }
+
     public myScheduleSlot(int startSlot, int endSlot, int scheduleType, String startDate, String endDate) {
         this.startSlot = startSlot;
         this.endSlot = endSlot;
         this.scheduleType = scheduleType;
         this.startDate = startDate;
         this.endDate = endDate;
+
     }
+
 
 
     protected myScheduleSlot(Parcel in) {
@@ -39,6 +82,10 @@ public class myScheduleSlot implements Parcelable{
         scheduleType = in.readInt();
         startDate = in.readString();
         endDate = in.readString();
+
+        patientName = in.readString();
+        clientName = in.readString();
+        service = in.readString();
     }
 
     public static final Creator<myScheduleSlot> CREATOR = new Creator<myScheduleSlot>() {
@@ -114,5 +161,9 @@ public class myScheduleSlot implements Parcelable{
         dest.writeInt(scheduleType);
         dest.writeString(startDate);
         dest.writeString(endDate);
+
+        dest.writeString(patientName);
+        dest.writeString(clientName);
+        dest.writeString(service);
     }
 }

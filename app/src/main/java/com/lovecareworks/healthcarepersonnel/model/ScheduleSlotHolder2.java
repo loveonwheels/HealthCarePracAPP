@@ -5,24 +5,24 @@ import java.util.List;
 /**
  * Created by ghost on 14/9/16.
  */
-public class ScheduleSlotHolder {
+public class ScheduleSlotHolder2 {
 
-    List<myScheduleSlot2> ScheduleList = null;
+    List<myScheduleSlot> ScheduleList = null;
 
     int id = 0;
 
-    public ScheduleSlotHolder() {
+    public ScheduleSlotHolder2() {
     }
 
-    public ScheduleSlotHolder(List<myScheduleSlot2> scheduleList) {
+    public ScheduleSlotHolder2(List<myScheduleSlot> scheduleList) {
         this.ScheduleList = scheduleList;
     }
 
-    public List<myScheduleSlot2> getScheduleList() {
+    public List<myScheduleSlot> getScheduleList() {
         return ScheduleList;
     }
 
-    public void setScheduleList(List<myScheduleSlot2> scheduleList) {
+    public void setScheduleList(List<myScheduleSlot> scheduleList) {
         this.ScheduleList = scheduleList;
     }
 

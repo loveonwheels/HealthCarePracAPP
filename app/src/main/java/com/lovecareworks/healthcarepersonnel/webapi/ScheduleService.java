@@ -10,6 +10,7 @@ import com.lovecareworks.healthcarepersonnel.classes.hcpinfo;
 import com.lovecareworks.healthcarepersonnel.model.AppRequest;
 import com.lovecareworks.healthcarepersonnel.model.Appiontments;
 import com.lovecareworks.healthcarepersonnel.model.ScheduleSlotHolder;
+import com.lovecareworks.healthcarepersonnel.model.ScheduleSlotHolder2;
 import com.lovecareworks.healthcarepersonnel.model.myScheduleSlot;
 
 import org.parceler.Generated;
@@ -31,9 +32,9 @@ import retrofit2.http.Query;
 public interface ScheduleService {
 
     @POST("Hcp_Schedule/SetSchedule")
-    Call<Boolean> SetSchedule(@Body ScheduleSlotHolder schedule);
+    Call<Boolean> SetSchedule(@Body ScheduleSlotHolder2 schedule);
 
 
     @GET("Hcp_Schedule/GetSchedule2")
-    Call<ScheduleSlotHolder> GetSchedule2(@Query("hcp_id") int hcp_id, @Query("date") String date);
+    Call<ScheduleSlotHolder> GetSchedule2(@Query("hcp_id") int hcp_id, @Query("startdate") String startdate, @Query("enddate") String enddate);
 }

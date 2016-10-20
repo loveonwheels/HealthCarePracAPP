@@ -29,6 +29,7 @@ import com.lovecareworks.healthcarepersonnel.dialogs.SlotDialogFragment;
 import com.lovecareworks.healthcarepersonnel.model.EducationItem;
 import com.lovecareworks.healthcarepersonnel.model.EducationalListAdapter;
 import com.lovecareworks.healthcarepersonnel.model.ScheduleSlotHolder;
+import com.lovecareworks.healthcarepersonnel.model.ScheduleSlotHolder2;
 import com.lovecareworks.healthcarepersonnel.model.TimeSlots;
 import com.lovecareworks.healthcarepersonnel.model.myScheduleSlot;
 import com.lovecareworks.healthcarepersonnel.model.myScheduleSlotListAdapter;
@@ -289,7 +290,6 @@ closeSchedule.setOnClickListener(new View.OnClickListener() {
 
         if(requestCode == 14403){
 
-
             myScheduleSlot schedule = data.getParcelableExtra("scheduleslot");
 
             results.add(schedule);
@@ -322,7 +322,7 @@ closeSchedule.setOnClickListener(new View.OnClickListener() {
 
 
     public void publishScheduleValues(){
-        ScheduleSlotHolder schedulesList = new ScheduleSlotHolder();
+        ScheduleSlotHolder2 schedulesList = new ScheduleSlotHolder2();
         schedulesList.setScheduleList(results);
         schedulesList.setId(((Central)getActivity()).gethcp_id());
 
@@ -344,8 +344,12 @@ closeSchedule.setOnClickListener(new View.OnClickListener() {
 
 if(successful){
 
+    Intent intent = new Intent();
+    intent.putExtra("scheduleAction", 0);
+    getTargetFragment().onActivityResult(getTargetRequestCode(),14414,intent);
     dismiss();
     progressDialog.hide();
+
 }
 
                 }else{

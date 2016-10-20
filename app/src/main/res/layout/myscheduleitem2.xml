@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="5dp"
+            android:layout_height="5dp"
+            android:background="@color/colorPrimary"
+            android:layout_marginLeft="15dp"
+            android:visibility="visible"></RelativeLayout>
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="08:00 am"
+            android:id="@+id/txtStartTime"
+            android:textColor="#585656" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/emptyoutline">
+
+            <RelativeLayout
+                android:layout_width="5dp"
+                android:layout_height="match_parent"
+                android:background="#7d7b7b" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:background="#d2cece"
+                android:layout_marginLeft="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/detailoutline">
+
+            <RelativeLayout
+                android:layout_width="5dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"></RelativeLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:background="#fff">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Felix Agrakye"
+                    android:id="@+id/txtPatientName"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Client : Precious Agrsdfsd"
+                    android:id="@+id/txtClientName"
+                    android:textColor="#585656" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wound Management"
+                    android:id="@+id/txtService"
+                    android:textColor="#585656" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="09:00 am"
+            android:id="@+id/txtEndTime"
+            android:textColor="#585656" />
+
+        <RelativeLayout
+            android:layout_width="5dp"
+            android:layout_height="5dp"
+            android:background="@color/colorPrimary"
+            android:layout_marginLeft="15dp" />
+    </LinearLayout>
+
+</LinearLayout>

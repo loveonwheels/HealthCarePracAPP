@@ -29,7 +29,9 @@ import com.lovecareworks.healthcarepersonnel.fragements.ScheduleListAdapter;
 import com.lovecareworks.healthcarepersonnel.model.Appiontments;
 import com.lovecareworks.healthcarepersonnel.model.ScheduleSlotHolder;
 import com.lovecareworks.healthcarepersonnel.model.myScheduleSlot;
+import com.lovecareworks.healthcarepersonnel.model.myScheduleSlot2;
 import com.lovecareworks.healthcarepersonnel.model.myScheduleSlotListAdapter;
+import com.lovecareworks.healthcarepersonnel.model.myScheduleSlotListAdapter2;
 import com.lovecareworks.healthcarepersonnel.util.TimeSlotUtil;
 import com.lovecareworks.healthcarepersonnel.webapi.RestScheduleService;
 import com.lovecareworks.healthcarepersonnel.webapi.RestUserService;
@@ -60,7 +62,7 @@ public class MySchedule extends Fragment {
     private String mParam1;
     private String mParam2;
 public ListView listvi;
-    myScheduleSlotListAdapter ci;
+    myScheduleSlotListAdapter2 ci;
     private RestScheduleService scheduleService = new RestScheduleService();
     private OnFragmentInteractionListener mListener;
 
@@ -153,6 +155,7 @@ public ListView listvi;
         final AlertDialog progressDialog = new SpotsDialog(getContext(), R.style.CustomDialog);
 // To dismiss the dialog
         progressDialog.show();
+        /*
         Call<ScheduleSlotHolder> call = scheduleService.getService().GetSchedule2(((Central)getActivity()).gethcp_id(), TimeSlotUtil.getDateinString());
         call.enqueue(new Callback<ScheduleSlotHolder>() {
             @Override
@@ -166,7 +169,7 @@ Log.e("status",String.valueOf(statusCode));
 
                 if (statusCode == 200) {
 
-                    List<myScheduleSlot> userAppiontments = responsefrom.getScheduleList();
+                    List<myScheduleSlot2> userAppiontments = responsefrom.getScheduleList();
 
 
 
@@ -175,7 +178,7 @@ Log.e("status",String.valueOf(statusCode));
 
 
 
-                        ci = new myScheduleSlotListAdapter(getActivity(), userAppiontments);
+                        ci = new myScheduleSlotListAdapter2(getActivity(), userAppiontments);
                         listvi.setAdapter(ci);
 
                         progressDialog.hide();
@@ -212,11 +215,13 @@ Log.e("status",String.valueOf(statusCode));
             public void onFailure(Call<ScheduleSlotHolder> call, Throwable t) {
                 //   progress.dismiss();
                 progressDialog.hide();
-                Toast.makeText(getActivity(),"request failed here",Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(),"request failed here again 12",Toast.LENGTH_LONG).show();
 
                 //   Log.e("dfdf", t.toString());
             }
         });
+
+        */
 
         return view;
     }

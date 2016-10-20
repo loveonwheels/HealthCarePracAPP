@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -100,6 +101,12 @@ public class Home extends Fragment implements GoogleApiClient.ConnectionCallback
     TextView TxtClient, TxtPatient, TxtDate, TxtTime;
 
     private OnFragmentInteractionListener mListener;
+
+    LinearLayout calHeader;
+    LinearLayout calHeader2,calHeader3;
+
+    TableLayout WeekTable,WeekTable2,WeekTable3;
+    boolean showweekView = true;
 
     public Home() {
         // Required empty public constructor
@@ -204,9 +211,13 @@ public class Home extends Fragment implements GoogleApiClient.ConnectionCallback
                         progressDialog.hide();
                     } else {
 
+                       // getActivity().getSupportFragmentManager().beginTransaction().add(R.id.framei, new Schedule(), "myschedule").addToBackStack("myschedule").commit();
+
+/*
                         transformedRequest = null;
                         homedetails.setVisibility(View.GONE);
                         txtnoapp.setVisibility(View.VISIBLE);
+
 
                         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                         builder.setMessage("No appiontment Found!")
@@ -218,6 +229,7 @@ public class Home extends Fragment implements GoogleApiClient.ConnectionCallback
                                 });
                         AlertDialog alert = builder.create();
                         alert.show();
+                        */
                         progressDialog.hide();
                     }
 
