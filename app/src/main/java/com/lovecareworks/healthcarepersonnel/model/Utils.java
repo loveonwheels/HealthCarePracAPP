@@ -96,8 +96,8 @@ public class Utils {
                     .withActionBarDrawerToggle(false)
                     .addDrawerItems(
                             new PrimaryDrawerItem().withName("Home").withIcon(GoogleMaterial.Icon.gmd_home).withIdentifier(1),
-                            new PrimaryDrawerItem().withName("My Schedule").withIcon(GoogleMaterial.Icon.gmd_schedule).withIdentifier(3),
-                            new PrimaryDrawerItem().withName("Appointment Request").withIcon(GoogleMaterial.Icon.gmd_event).withIdentifier(5).withBadge("0").withBadgeTextColor(Color.RED),
+                            new PrimaryDrawerItem().withName("Schedule").withIcon(GoogleMaterial.Icon.gmd_schedule).withIdentifier(3),
+                            new PrimaryDrawerItem().withName("Pending Reports").withIcon(GoogleMaterial.Icon.gmd_receipt).withIdentifier(4),
                             new PrimaryDrawerItem().withName("Profile").withIcon(GoogleMaterial.Icon.gmd_account_circle).withIdentifier(6),
                             new PrimaryDrawerItem().withName("Contact Us").withIcon(GoogleMaterial.Icon.gmd_mail).withIdentifier(7),
                             new PrimaryDrawerItem().withName("Log Out").withIcon(R.drawable.ic_logout_24dp_color_text).withIdentifier(8)
