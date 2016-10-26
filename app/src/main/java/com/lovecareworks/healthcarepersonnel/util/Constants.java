@@ -4,6 +4,7 @@ package com.lovecareworks.healthcarepersonnel.util;
  * Created by alamchristian on 3/2/16.
  */
 public class Constants {
+    public static final String SHARED_DB = "sharedDBmSIHATClinet";
     public static final String API_URL = "http://healthcarepro.azurewebsites.net/alamazure/";
     public static final String PAYPAL_CLIENT_ID = "AR8KAEePjvr1fBEQlhBHlyD5LiysDQNgqmWZZfMAbgrkhJwtsp5VamD_I8W3iAxlSgdc__8eRj2W30WT";
 

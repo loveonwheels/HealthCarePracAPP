@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "845793832949",
+    "firebase_url": "https://msihathcp.firebaseio.com",
+    "project_id": "msihathcp",
+    "storage_bucket": "msihathcp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:845793832949:android:761ea532becadd39",
+        "android_client_info": {
+          "package_name": "com.lovecareworks.healthcarepersonnel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "845793832949-klp192iaptnsneioftubj8qggh0i8fmu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1KB1TX0Ww4q9R3heEADtO8Qpo0n3-xu8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -160,38 +160,11 @@ public class MyLocationListener implements LocationListener
 
         public void onLocationChanged(final Location loc)
         {
-            Log.i("***********************", "Location changed");
-            LocationUpdate Location = new LocationUpdate(hcp_id,new Date(),loc.getLatitude(),loc.getLongitude());
-            Call<Boolean> call = restLocationService.getService().updateLocation(Location);
-            call.enqueue(new Callback<Boolean>() {
-                @Override
-                public void onResponse(Call<Boolean> call, Response<Boolean> response) {
-                    int statusCode = response.code();
-                    String msg = "sucess";
 
-
-                    if (statusCode == 200) {
-                        msg="update place";
-                        Log.e("update location ser",msg);
-
-                    }else{
-                        msg="error again";
-                        Log.e("update location ser",msg+statusCode);
-                    }
-
-                }
-
-                @Override
-                public void onFailure(Call<Boolean> call, Throwable t) {
-                    //   progress.dismiss();
-                    Log.e("update location ser",t.toString());
-
-                }
-            });
-
-       /*     if(isBetterLocation(loc, previousBestLocation)) {
-
-              LocationUpdate Location = new LocationUpdate(hcp_id,new Date(),loc.getLatitude(),loc.getLongitude());
+            try{
+                Log.i("***********************", "Location changed");
+                if(isBetterLocation(loc, previousBestLocation)) {
+                    LocationUpdate Location = new LocationUpdate(hcp_id, new Date(), loc.getLatitude(), loc.getLongitude());
                     Call<Boolean> call = restLocationService.getService().updateLocation(Location);
                     call.enqueue(new Callback<Boolean>() {
                         @Override
@@ -201,12 +174,12 @@ public class MyLocationListener implements LocationListener
 
 
                             if (statusCode == 200) {
-                                msg="update place";
-                                Log.e("update location",msg);
+                                msg = "update place";
+                                Log.e("update location ser", msg);
 
-                            }else{
-                                msg="error again";
-                                Log.e("update location",msg+statusCode);
+                            } else {
+                                msg = "error again";
+                                Log.e("update location ser", msg + statusCode);
                             }
 
                         }
@@ -214,14 +187,23 @@ public class MyLocationListener implements LocationListener
                         @Override
                         public void onFailure(Call<Boolean> call, Throwable t) {
                             //   progress.dismiss();
-                            Log.e("update location",t.toString());
+                            Log.e("update location ser", t.toString());
 
                         }
                     });
 
+                }
+            }catch(Exception e){
 
 
-            }       */
+            }
+
+
+
+
+
+
+
         }
 
         public void onProviderDisabled(String provider)
