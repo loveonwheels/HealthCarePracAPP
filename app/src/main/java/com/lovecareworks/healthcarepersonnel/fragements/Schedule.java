@@ -1384,6 +1384,8 @@ tool.setTitle("My Appointments");
                         listvi.setAdapter(ci);
 
                     }else{
+
+                        listvi.removeAllViews();
                         Log.e("check", "less than ero");
 
                     }
