@@ -3,6 +3,7 @@ package com.lovecareworks.healthcarepersonnel.fragements;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -44,6 +45,7 @@ import com.lovecareworks.healthcarepersonnel.model.myScheduleSlotListAdapter;
 import com.lovecareworks.healthcarepersonnel.model.myScheduleSlotListAdapter2;
 import com.lovecareworks.healthcarepersonnel.model.refineSchedule;
 import com.lovecareworks.healthcarepersonnel.util.TimeSlotUtil;
+import com.lovecareworks.healthcarepersonnel.webapi.RestPractitionerService;
 import com.lovecareworks.healthcarepersonnel.webapi.RestScheduleService;
 import com.lovecareworks.healthcarepersonnel.webapi.RestUserService;
 
@@ -59,13 +61,16 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Schedule extends Fragment {
+
+    int item_position = 0;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private ProgressDialog progressDialog;
     Button btnToday;
 int activeday = 0;
-
+    private RestPractitionerService restPracService = new RestPractitionerService();
     myScheduleSlotListAdapter2 ci;
     private RestScheduleService scheduleService = new RestScheduleService();
     List<myScheduleSlot2> userAppiontments;
@@ -99,14 +104,14 @@ TextView hidepanel,showpanel;
 
     TextView cal_mon_c , cal_tue_c , cal_wed_c, cal_thu_c ,cal_fri_c ,cal_sat_c ,cal_sun_c ;
 
-
+    ListView listvi;
     Schedule thisfragement;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
     private RestUserService restUserService = new RestUserService();
     private OnFragmentInteractionListener mListener;
-    ListView listvi;
+
 
     public Schedule() {
         // Required empty public constructor
@@ -270,24 +275,28 @@ tool.setTitle("My Appointments");
         listvi = (ListView)view.findViewById(R.id.schedule_list);
 
 
-
-        listvi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
+        final AlertDialog.Builder builder_long = new AlertDialog.Builder(getActivity());
+        final CharSequence renewal[] = getResources().getTextArray(R.array.reglongclick);
+        builder_long.setItems(renewal, new DialogInterface.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> a, View v, int position, long id) {
+            public void onClick(DialogInterface dialog, int which) {
+         deleteBlock(item_position);
 
-                /*
-                Object o = listvi.getItemAtPosition(position);
-                ScheduleTra appiontment = (ScheduleTra) o;
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-                schedule_dialog dFragment =  schedule_dialog.newInstance(appiontment,1);
-                // Show DialogFragment
-                dFragment.show(fm, "Dialog Fragment");
-
-                //getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.framei, new AppiontmentInfo()).commit();
-*/
+            }
 
 
+        });
+
+
+
+
+        listvi.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+                item_position = position;
+                builder_long.show();
+                return true;
             }
         });
 
@@ -1429,5 +1438,86 @@ tool.setTitle("My Appointments");
             loadSchedule();
 
         }
+    }
+
+    public void deleteBlock(int pos){
+
+        progressDialog = new ProgressDialog(this.getContext());
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage("Deleting");
+        progressDialog.show();
+
+        Log.e("slot number",userAppiontments.get(pos).StartDate);
+        deleteSlot(Integer.parseInt(userAppiontments.get(pos).StartDate));
+
+    }
+
+    private void deleteSlot(int slotId){
+
+        Call<Boolean> call = restPracService.getService().DeleteemptySlot(slotId);
+
+        call.enqueue(new Callback<Boolean>() {
+            @Override
+            public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+
+                int statusCode = response.code();
+
+
+                if (statusCode == 200) {
+
+
+                    loadSchedule();
+
+
+                    progressDialog.dismiss();
+                }else{
+
+
+
+                    progressDialog.dismiss();
+
+                }
+
+
+            }
+
+
+
+            @Override
+            public void onFailure(Call<Boolean> call, Throwable t) {
+                //   progress.dismiss();
+                progressDialog.dismiss();
+                Toast.makeText(getActivity(),"delete failed" + t.getMessage(),Toast.LENGTH_LONG).show();
+
+                //   Log.e("dfdf", t.toString());
+            }
+        });
+     /*   availablePractitioners
+                .flatMapIterable(pracs -> pracs)
+                .toList()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(list -> {
+
+                    if(practitioners.size() > 0) {
+                        Log.e("here17","here17");
+                        practitioners_list.setAdapter(new AvailablePractitionersListAdapter(this.getActivity(), practitioners));
+                        practitioners_list.setOnItemClickListener(this);
+                    }else{
+
+                        Log.e("here18","here18");
+                    }
+                    if(progressDialog.isShowing())
+                        progressDialog.dismiss();
+                }, throwable -> {
+                    Log.e("here16","here16");
+                    Toast.makeText(AvailablePractitionersFragment.this.getContext(),
+                           throwable.toString(), Toast.LENGTH_SHORT).show();
+                    throwable.printStackTrace();
+                    Log.e("here161", throwable.toString());
+                    if(progressDialog.isShowing())
+                        progressDialog.dismiss();
+                });
+                */
     }
 }

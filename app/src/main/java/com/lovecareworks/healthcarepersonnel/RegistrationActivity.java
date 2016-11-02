@@ -77,9 +77,6 @@ int location = 0;
             @Override
             public void onClick(View v) {
 
-
-
-
                 if (signup.getText().toString() == "Submit"  ) {
 
                     final registration3 fragment3 = (registration3)getSupportFragmentManager().findFragmentByTag("registration3");
@@ -172,13 +169,20 @@ int location = 0;
 
                 } else {
                     if (location == 0) {
-                        location = 1;
+
 
                         //get registration 1 data;
                         registration1 fragment = (registration1)getSupportFragmentManager().findFragmentByTag("registration1");
+
+                        if(!fragment.validateinput().isSatus()){
+                            ///copy
+                        }{
+                            // make alert fragment.validateinput().getMessage
+                        }
                         BasicInformation =  fragment.getData();
 
 
+                        location = 1;
 
 
                         activity.getSupportFragmentManager().beginTransaction()

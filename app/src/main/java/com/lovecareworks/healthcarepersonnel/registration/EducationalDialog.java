@@ -82,19 +82,6 @@ public class EducationalDialog extends DialogFragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                if(which == 0){
-                   Bundle args = new Bundle();
-                   args.putInt("position", item_position);
-                   args.putBoolean("showEdit",true);
-                   args.putString("uniName", results.get(item_position).getUniversityName());
-                   args.putString("startDate", results.get(item_position).getStartDate());
-                   args.putString("endDate", results.get(item_position).getEndDate());
-                   args.putString("award", results.get(item_position).getAwardReceived());
-                   FragmentManager manager = getFragmentManager();
-                   EducationalAdder alertDialogFragment = new EducationalAdder();
-                   alertDialogFragment.setArguments(args);
-                   alertDialogFragment.show(manager, "educationadder");
-
-               }else if(which == 1){
 
                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 

@@ -12,6 +12,7 @@ import android.widget.EditText;
 
 import com.lovecareworks.healthcarepersonnel.R;
 import com.lovecareworks.healthcarepersonnel.classes.basicinfomation;
+import com.lovecareworks.healthcarepersonnel.model.errorMessage;
 import com.lovecareworks.healthcarepersonnel.util.CountryDetails;
 import com.lovecareworks.healthcarepersonnel.util.DateDialog;
 
@@ -29,7 +30,7 @@ public class registration1 extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+private String errormessage = "";
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -253,7 +254,17 @@ input_marital_status = (EditText)view.findViewById(R.id.input_marital_status);
     }
 
 
+
+
+    public errorMessage validateinput(){
+        // create errormessage object
+        //change value to suit case
+        return new errorMessage();
+    }
+
+
     public basicinfomation getData(){
+
 
         return new basicinfomation(fullname.getText().toString(),email.getText().toString(),input_nationality.getText().toString(),
                 phonenum.getText().toString(),input_dob.getText().toString(),input_marital_status.getText().toString(),

@@ -25,4 +25,7 @@ public interface PractitionerService {
     );
 
 
+    @DELETE("AppCom/CancelEmptyappointment")
+    Call<Boolean> DeleteemptySlot (@Query("slot_id") int slot_id);
+
 }
