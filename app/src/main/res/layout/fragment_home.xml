@@ -48,8 +48,9 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:visibility="visible"
-                    android:id="@+id/homedetails">
+                    android:visibility="gone"
+                    android:id="@+id/homedetails"
+                    android:layout_marginBottom="30dp">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -310,14 +311,67 @@
                     android:text="Later today"
                     android:id="@+id/textView20"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="40dp" />
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/common_google_signin_btn_text_light_focused"
+                    android:layout_marginBottom="2dp" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/emptySchedule">
+
+                    <RelativeLayout
+                        android:layout_width="5dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/bright_foreground_disabled_material_light"
+                        android:layout_marginTop="2dp" />
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:background="@color/button_material_light" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="your schedule is empty for today"
+                            android:id="@+id/textView29"
+                            android:textColor="@color/button_material_dark" />
+                    </LinearLayout>
+                </LinearLayout>
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:background="@color/colorPrimary"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/goToSchedule">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Go to schedule to add a slot"
+                        android:id="@+id/textView18"
+                        android:textColor="@color/background_material_light"
+                        android:textAlignment="center"
+                        android:singleLine="false" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/firstLaterToday"
+                    android:visibility="gone">
 
                     <RelativeLayout
                         android:layout_width="5dp"
@@ -329,7 +383,7 @@
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:text="08:00 am"
-                        android:id="@+id/textView51"
+                        android:id="@+id/firstLaterst"
                         android:textColor="#585656" />
 
                     <LinearLayout
@@ -355,21 +409,21 @@
                                 android:layout_height="wrap_content"
                                 android:textAppearance="?android:attr/textAppearanceMedium"
                                 android:text="Felix Agrakye"
-                                android:id="@+id/textView42"
+                                android:id="@+id/firstLaterPatient"
                                 android:textColor="@color/colorPrimaryDark" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Client : Precious Agrsdfsd"
-                                android:id="@+id/textView43"
+                                android:id="@+id/firstLaterClient"
                                 android:textColor="#585656" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Wound Management"
-                                android:id="@+id/textView47"
+                                android:id="@+id/firstLaterService"
                                 android:textColor="#585656" />
                         </LinearLayout>
                     </LinearLayout>
@@ -385,7 +439,7 @@
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:text="09:00 am"
-                        android:id="@+id/textView52"
+                        android:id="@+id/secondLaterst"
                         android:textColor="#585656" />
 
                 </LinearLayout>
@@ -393,7 +447,9 @@
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="wrap_content"
+                    android:id="@+id/secondLaterToday"
+                    android:visibility="gone">
 
                     <RelativeLayout
                         android:layout_width="5dp"
@@ -464,6 +520,58 @@
                         android:id="@+id/textView60"
                         android:textColor="#585656" />
 
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:id="@+id/noblockedapp">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:id="@+id/imageView3"
+                        android:background="@drawable/ic_event_busy_black_24dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Sorry, no blocked appoinment coming up soon"
+                        android:id="@+id/textView31"
+                        android:singleLine="true" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/nootherappointment"
+                    android:layout_gravity="center_horizontal"
+                    android:visibility="gone">
+
+                    <RelativeLayout
+                        android:layout_width="5dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/bright_foreground_disabled_material_light"
+                        android:layout_marginTop="2dp" />
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:background="@color/button_material_light" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="No other appointment for today"
+                            android:id="@+id/textView33"
+                            android:textColor="@color/button_material_dark" />
+                    </LinearLayout>
                 </LinearLayout>
 
             </LinearLayout>

@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.lovecareworks.healthcarepersonnel.R;
 import com.lovecareworks.healthcarepersonnel.classes.certificationbody;
+import com.lovecareworks.healthcarepersonnel.classes.errorMessage;
 import com.lovecareworks.healthcarepersonnel.util.DateDialog;
 import com.google.android.gms.plus.PlusOneButton;
 
@@ -38,9 +39,9 @@ public class registration2 extends Fragment {
     private String mParam1;
     private String mParam2;
     private PlusOneButton mPlusOneButton;
-EditText input_exp_date,input_reg_body,input_reg_num,input_nric;
+    EditText input_exp_date,input_reg_body,input_reg_num,input_nric;
     EditText input_prac_type,input_renewal,input_pract,input_renewalperiod,input_language;
-            TextView edu_list,emp_list;
+    TextView edu_list,emp_list;
     Fragment registration2;
 
     private OnFragmentInteractionListener mListener;
@@ -84,15 +85,15 @@ EditText input_exp_date,input_reg_body,input_reg_num,input_nric;
         input_exp_date = (EditText)view.findViewById(R.id.input_exp_date);
         input_prac_type = (EditText)view.findViewById(R.id.input_prac_type);
         input_renewal = (EditText)view.findViewById(R.id.input_ren_per);
-registration2 = this;
+        registration2 = this;
         input_reg_body = (EditText)view.findViewById(R.id.input_reg_body_name);
         input_reg_num = (EditText)view.findViewById(R.id.input_reg_number);
         input_nric = (EditText)view.findViewById(R.id.input_nric);
         input_pract = (EditText)view.findViewById(R.id.input_emp_position);
-                input_renewalperiod = (EditText)view.findViewById(R.id.input_ren_per);
-                input_language = (EditText)view.findViewById(R.id.input_language);
+        input_renewalperiod = (EditText)view.findViewById(R.id.input_ren_per);
+        input_language = (EditText)view.findViewById(R.id.input_language);
 
-edu_list = (TextView)view.findViewById(R.id.textView12);
+        edu_list = (TextView)view.findViewById(R.id.textView12);
         emp_list = (TextView)view.findViewById(R.id.textView14);
         final AlertDialog.Builder builder_prac_type = new AlertDialog.Builder(getActivity(),R.style.alerttheme);
         builder_prac_type.setTitle("Select your practitioner type");
@@ -233,6 +234,13 @@ edu_list = (TextView)view.findViewById(R.id.textView12);
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    public errorMessage validateinput(){
+        errorMessage.clear();
+        if(input_prac_type.getText().toString().equals(""))new errorMessage("Practitioner type is empty");
+        if(input_language.getText().toString().equals(""))new errorMessage("Language is empty");
+        return new errorMessage();
     }
 
 

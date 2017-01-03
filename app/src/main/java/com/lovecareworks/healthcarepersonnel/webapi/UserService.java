@@ -18,6 +18,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
+import retrofit2.http.PATCH;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Part;
@@ -36,8 +37,11 @@ public interface UserService {
     Call<List<Appiontments>> GetSchedule(@Query("hcp_id") int hcp_id);
 
     @PUT("Hcp_Schedule/getcurrent")
-    Call<List<Appiontments>> GetCurrent(@Query("hcp_id") int hcp_id);
+    Call<List<Appiontments>> GetCurrent(@Query("hcp_id") int hcp_id,@Query("currenttime") int currenttime);
 
+
+    @PATCH("Hcp_Schedule/isScheduleAvailable")
+    Call<Boolean> isScheduleAvailable(@Query("hcp_id") int hcp_id);
 
     @POST("Hcp_Schedule/getpendingreports")
     Call<List<Appiontments>> GetPendingReports(@Query("hcp_id") int hcp_id);

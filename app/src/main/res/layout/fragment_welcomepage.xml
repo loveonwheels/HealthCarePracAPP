@@ -44,7 +44,7 @@
                         android:text="Sign In"
                         android:background="#aba81783"
                         android:textColor="#ffffff"
-                        android:id="@+id/signBtn"
+                        android:id="@+id/signBtnr"
                         android:layout_marginLeft="2dp" />
                 </TableRow>
             </TableLayout>

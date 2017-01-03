@@ -153,7 +153,7 @@ if(userAppiontments.getDetail() > 0 ){
                     public void onFailure(Call<HCPAuthentication> call, Throwable t) {
                         //   progress.dismiss();
                         progressDialog.hide();
-                        Toast.makeText(getActivity(),t.toString(),Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(),"error 405 :"+t.toString(),Toast.LENGTH_LONG).show();
 
                     }
                 });

@@ -14,11 +14,10 @@
 
     <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">#000000</item>
         <item name="colorAccent">@color/colorPrimary</item>
 
         <item name="android:alertDialogStyle">@style/AlertDialog_Sphinx</item>
-        <item name="android:alertDialogTheme">@style/alerttheme3</item>
     </style>
 
     <style name="Theme_Holo_Dialog_Alert" parent="@android:style/Theme.Holo.Light.Dialog">

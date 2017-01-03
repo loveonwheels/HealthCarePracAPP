@@ -9,9 +9,11 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.util.Log;
@@ -49,23 +51,24 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RegistrationActivity extends AppCompatActivity {
-Button signup,cancel;
+    Button signup, cancel;
     HCP registeringPersonnel;
-int location = 0;
+    int location = 0;
     AppCompatActivity activity;
     basicinfomation BasicInformation;
     certificationbody CertificationBody;
-  List<EducationItem> edulist = new ArrayList<>();
+    List<EducationItem> edulist = new ArrayList<>();
     List<EmploymentClass> emplist = new ArrayList<>();
     RadioGroup radiogroup;
     private RestUserService restUserService = new RestUserService();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-        Typeface face= Typeface.createFromAsset(getAssets(), "fonts/TrebuchetMS.ttf");
-       signup =(Button)findViewById(R.id.btn_signup_confirm);
-        cancel = (Button)findViewById(R.id.btn_signup_cancel);
+        Typeface face = Typeface.createFromAsset(getAssets(), "fonts/TrebuchetMS.ttf");
+        signup = (Button) findViewById(R.id.btn_signup_confirm);
+        cancel = (Button) findViewById(R.id.btn_signup_cancel);
 
         activity = this;
         SpannableString s = new SpannableString("Register");
@@ -77,109 +80,128 @@ int location = 0;
             @Override
             public void onClick(View v) {
 
-                if (signup.getText().toString() == "Submit"  ) {
+                if (signup.getText().toString() == "Submit") {
 
-                    final registration3 fragment3 = (registration3)getSupportFragmentManager().findFragmentByTag("registration3");
-                   if(fragment3.getCheckButton()){
-                       registeringPersonnel = createHcp();
-                       Toast.makeText(getApplication(),"here is data"+registeringPersonnel.CertificationBody.getLanguage(),Toast.LENGTH_LONG).show();
+                    final registration3 fragment3 = (registration3) getSupportFragmentManager().findFragmentByTag("registration3");
+
+                    if(fragment3.imagePicked()) {
+                        if (fragment3.getCheckButton()) {
+                            registeringPersonnel = createHcp();
+                            //   Toast.makeText(getApplication(), "here is data" + registeringPersonnel.CertificationBody.getLanguage(), Toast.LENGTH_LONG).show();
                   /*  FragmentManager manager = getFragmentManager();
                     completedReg alertDialogFragment = new completedReg();
                     alertDialogFragment.show(manager, "completedreg");
                     */
 
-                       final AlertDialog progressDialog = new SpotsDialog(activity, R.style.CustomDialog3);
+                            final AlertDialog progressDialog = new SpotsDialog(activity, R.style.CustomDialog3);
 // To dismiss the dialog
-                       progressDialog.show();
-                       Log.e("registration",registeringPersonnel.getEducationBackgroundList().get(0).getUniversityName());
-                       Call<HCPtest> call = restUserService.getService().Register(registeringPersonnel);
-                       call.enqueue(new Callback<HCPtest>() {
-                           @Override
-                           public void onResponse(Call<HCPtest> call, Response<HCPtest> response) {
-                               int statusCode = response.code();
-                               HCPtest userid = response.body();
-                               String msg = "here";
+                            progressDialog.show();
+                            Log.e("registration", registeringPersonnel.getEducationBackgroundList().get(0).getUniversityName());
+                            Call<HCPtest> call = restUserService.getService().Register(registeringPersonnel);
+                            call.enqueue(new Callback<HCPtest>() {
+                                @Override
+                                public void onResponse(Call<HCPtest> call, Response<HCPtest> response) {
+                                    int statusCode = response.code();
+                                    HCPtest userid = response.body();
+                                    String msg = "here";
 
 
-                               if (statusCode == 200) {
+                                    if (statusCode == 200) {
 
-                                   AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-                                   builder.setMessage("Registration Successful your                 username is "+registeringPersonnel.BasicInformation.getEmail() +"        password :"+registeringPersonnel.BasicInformation.getPhone()+
-                                           "Please contact the Admin before login")
-                                           .setCancelable(false)
-                                           .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                               public void onClick(DialogInterface dialog, int id) {
-                                                   activity.finish();
-                                               }
-                                           });
-                                   AlertDialog alert = builder.create();
-                                   alert.show();
+                                        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                                        builder.setMessage("Registration Successful your                 username is " + registeringPersonnel.BasicInformation.getEmail() + "        password :" + registeringPersonnel.BasicInformation.getPhone() +
+                                                "Please contact the Admin before login")
+                                                .setCancelable(false)
+                                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                                    public void onClick(DialogInterface dialog, int id) {
+                                                        activity.finish();
+                                                    }
+                                                });
+                                        AlertDialog alert = builder.create();
+                                        alert.show();
 
-                                  uploadFile(fragment3.getfile(),Integer.parseInt(userid.getDetail()),progressDialog);
-
-
-
-                               }else{
+                                        uploadFile(fragment3.getfile(), Integer.parseInt(userid.getDetail()), progressDialog);
 
 
-                                   AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-                                   builder.setMessage("Registration failed contact the admin")
-                                           .setCancelable(false)
-                                           .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                               public void onClick(DialogInterface dialog, int id) {
-
-                                               }
-                                           });
-                                   AlertDialog alert = builder.create();
-                                   alert.show();
-                                   progressDialog.hide();
-                               }
+                                    } else {
 
 
-                               //  progress.dismiss();
+                                        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                                        builder.setMessage("Registration failed contact the admin")
+                                                .setCancelable(false)
+                                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                                    public void onClick(DialogInterface dialog, int id) {
+
+                                                    }
+                                                });
+                                        AlertDialog alert = builder.create();
+                                        alert.show();
+                                        progressDialog.hide();
+                                    }
 
 
-                           }
+                                    //  progress.dismiss();
 
-                           @Override
-                           public void onFailure(Call<HCPtest> call, Throwable t) {
-                               //   progress.dismiss();
-                               progressDialog.hide();
-                               Toast.makeText(activity,t.toString(),Toast.LENGTH_LONG).show();
 
-                           }
-                       });
-                   }else{
-                       AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-                       builder.setMessage("Please Accept our terms and condition to continue")
-                               .setCancelable(false)
-                               .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                   public void onClick(DialogInterface dialog, int id) {
+                                }
 
-                                   }
-                               });
-                       AlertDialog alert = builder.create();
-                       alert.show();
-                   }
+                                @Override
+                                public void onFailure(Call<HCPtest> call, Throwable t) {
+                                    //   progress.dismiss();
+                                    progressDialog.hide();
+                                    Toast.makeText(activity, t.toString(), Toast.LENGTH_LONG).show();
+
+                                }
+                            });
+                        } else {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                            builder.setMessage("Please Accept our terms and condition to continue")
+                                    .setCancelable(false)
+                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+
+                                        }
+                                    });
+                            AlertDialog alert = builder.create();
+                            alert.show();
+                        }
+                    }else{
+                        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                        builder.setMessage("Please click the image box to select a profile image")
+                                .setCancelable(false)
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+
+                                    }
+                                });
+                        AlertDialog alert = builder.create();
+                        alert.show();
+                    }
 
 
                     //get registration 3 data;
 
 
-
                 } else {
                     if (location == 0) {
 
-
                         //get registration 1 data;
-                        registration1 fragment = (registration1)getSupportFragmentManager().findFragmentByTag("registration1");
+                        registration1 fragment = (registration1) getSupportFragmentManager().findFragmentByTag("registration1");
 
-                        if(!fragment.validateinput().isSatus()){
-                            ///copy
-                        }{
-                            // make alert fragment.validateinput().getMessage
+                        if (fragment.validateinput().isSatus()) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(activity); //<---------------------
+                            builder.setMessage(fragment.validateinput().getMessage())
+                                    .setCancelable(false)
+                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+
+                                        }
+                                    });
+                            AlertDialog alert = builder.create();
+                            alert.show();
+                            return;
                         }
-                        BasicInformation =  fragment.getData();
+                        BasicInformation = fragment.getData();
 
 
                         location = 1;
@@ -204,8 +226,47 @@ int location = 0;
                     } else {
 
                         //get registration 2 data;
-                        registration2 fragmentreg2 = (registration2)getSupportFragmentManager().findFragmentByTag("registration2");
-                        CertificationBody =  fragmentreg2.getCertificationData();
+                        registration2 fragmentreg2 = (registration2) getSupportFragmentManager().findFragmentByTag("registration2");
+
+                        if (fragmentreg2.validateinput().isSatus()) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(activity); //<---------------------
+                            builder.setMessage(fragmentreg2.validateinput().getMessage())
+                                    .setCancelable(false)
+                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+                                        }
+                                    });
+                            AlertDialog alert = builder.create();
+                            alert.show();
+                            return;
+                        }
+                        if (emplist.size() <= 0) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(activity); //<---------------------
+                            builder.setMessage("Please Enter Employment history")
+                                    .setCancelable(false)
+                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+                                        }
+                                    });
+                            AlertDialog alert = builder.create();
+                            alert.show();
+                            return;
+                        }
+                        if (edulist.size() <= 0) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(activity); //<---------------------
+                            builder.setMessage("Please Enter Educational history")
+                                    .setCancelable(false)
+                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+                                        }
+                                    });
+                            AlertDialog alert = builder.create();
+                            alert.show();
+                            return;
+                        }
+
+
+                        CertificationBody = fragmentreg2.getCertificationData();
 
                         activity.getSupportFragmentManager().beginTransaction()
                                 .setCustomAnimations(R.anim.slide_in_left, 0)
@@ -234,14 +295,14 @@ int location = 0;
             }
         });
 
-        this.getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.push_down_out,R.anim.slide_in_left).replace(R.id.registrationcontainer, new registration1(), "registration1").commit();
+        this.getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.push_down_out, R.anim.slide_in_left).replace(R.id.registrationcontainer, new registration1(), "registration1").commit();
     }
 
-
-    public void AddEdu(List<EducationItem> result){
+    public void AddEdu(List<EducationItem> result) {
         edulist = result;
 
     }
+
     private void uploadFile(File file, int hcpid, final AlertDialog progressDialog) {
 
 
@@ -260,7 +321,7 @@ int location = 0;
                         MediaType.parse("multipart/form-data"), descriptionString);
 
 
-        Call<String> call = restUserService.getService().uploadregisters(body,description);
+        Call<String> call = restUserService.getService().uploadregisters(body, description);
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
@@ -269,12 +330,12 @@ int location = 0;
                 String msg = "here";
 
                 if (statusCode == 200) {
-                    Log.e("success","sucesss");
+                    Log.e("success", "sucesss");
                     progressDialog.hide();
                     //  progress.dismiss();
-                }else{
+                } else {
                     Log.e("dfdf2", msg);
-                    msg="error again";
+                    msg = "error again";
 
                 }
                 Log.e("dfdf1", msg);
@@ -306,13 +367,12 @@ int location = 0;
         return result;
     }
 
-
-    public void AddEmp(List<EmploymentClass> result){
+    public void AddEmp(List<EmploymentClass> result) {
         emplist = result;
 
     }
 
-    public HCP createHcp(){
+    public HCP createHcp() {
         HCP hcp = new HCP();
         hcp.setBasicInformation(BasicInformation);
         hcp.setCertificationBody(CertificationBody);
@@ -322,7 +382,6 @@ int location = 0;
         hcp.setEmploymentHistoryList(emplist);
         return hcp;
     }
-
 
     public List<EducationItem> getEducationList() {
         return edulist;

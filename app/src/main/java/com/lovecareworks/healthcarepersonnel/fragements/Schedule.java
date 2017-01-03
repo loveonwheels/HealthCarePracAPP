@@ -219,7 +219,7 @@ hidepanel = (TextView)view.findViewById(R.id.Cal_btn_hide_panel);
 
         setDayClick();
        // tool.setOverflowIcon(getResources().getDrawable(R.drawable.arrowdown, getActivity().getTheme()));
-tool.setTitle("My Appointments");
+tool.setTitle("My Schedule");
         tool.setNavigationIcon(R.drawable.showslide);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             tool.setOverflowIcon(getResources().getDrawable(R.drawable.menu_icon, getActivity().getTheme()));
@@ -1385,7 +1385,7 @@ tool.setTitle("My Appointments");
 
                     }else{
 
-                        listvi.removeAllViews();
+                        listvi.removeAllViewsInLayout();
                         Log.e("check", "less than ero");
 
                     }

@@ -11,6 +11,17 @@ import java.util.Calendar;
  * Created by ghost on 13/9/16.
  */
 public class TimeSlotUtil {
+
+public static int getCurrenthour(){
+    Calendar now = Calendar.getInstance();
+   return now.get(Calendar.HOUR_OF_DAY);
+}
+
+    public static int getMinutes(){
+        Calendar now = Calendar.getInstance();
+        return now.get(Calendar.MINUTE);
+    }
+
     public static ArrayList<TimeSlots> generateTimeSlots(int StartTime, int EndTime,int[] disabledslots){
         ArrayList<TimeSlots>  timeSlots = new ArrayList<>();
         for(int i = StartTime;i<= EndTime;i++){

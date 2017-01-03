@@ -12,7 +12,7 @@ import android.widget.EditText;
 
 import com.lovecareworks.healthcarepersonnel.R;
 import com.lovecareworks.healthcarepersonnel.classes.basicinfomation;
-import com.lovecareworks.healthcarepersonnel.model.errorMessage;
+import com.lovecareworks.healthcarepersonnel.classes.errorMessage;
 import com.lovecareworks.healthcarepersonnel.util.CountryDetails;
 import com.lovecareworks.healthcarepersonnel.util.DateDialog;
 
@@ -30,7 +30,7 @@ public class registration1 extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-private String errormessage = "";
+    private String errormessage = "";
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -85,18 +85,18 @@ private String errormessage = "";
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-       View view =  inflater.inflate(R.layout.fragment_regristration1, container, false);
+        View view =  inflater.inflate(R.layout.fragment_regristration1, container, false);
         input_nationality= (EditText)view.findViewById(R.id.input_nationality);
         input_dob = (EditText)view.findViewById(R.id.dob);
-input_marital_status = (EditText)view.findViewById(R.id.input_marital_status);
+        input_marital_status = (EditText)view.findViewById(R.id.input_marital_status);
         input_gender = (EditText)view.findViewById(R.id.input_gender);
-   fullname = (EditText)view.findViewById(R.id.input_name);
-      email = (EditText)view.findViewById(R.id.input_email);
+        fullname = (EditText)view.findViewById(R.id.input_name);
+        email = (EditText)view.findViewById(R.id.input_email);
         service_area = (EditText)view.findViewById(R.id.input_servicearea);
-    phonenum = (EditText)view.findViewById(R.id.input_number1);
+        phonenum = (EditText)view.findViewById(R.id.input_number1);
         secphonenum = (EditText)view.findViewById(R.id.input_number2);
-      address = (EditText)view.findViewById(R.id.input_address1);
-      secaddress = (EditText)view.findViewById(R.id.input_address2);
+        address = (EditText)view.findViewById(R.id.input_address1);
+        secaddress = (EditText)view.findViewById(R.id.input_address2);
         nric = (EditText)view.findViewById(R.id.input_nric2);
 
         final AlertDialog.Builder builder_gender = new AlertDialog.Builder(getActivity(),R.style.alerttheme);
@@ -129,14 +129,14 @@ input_marital_status = (EditText)view.findViewById(R.id.input_marital_status);
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(),R.style.alerttheme);
         builder.setTitle("Select your nationality");
         final CharSequence race[] = CountryDetails.getCountry();
-                builder.setItems(race, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // the user clicked on colors[which]
-                        input_nationality.setText(race[which]);
+        builder.setItems(race, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // the user clicked on colors[which]
+                input_nationality.setText(race[which]);
 
-                    }
-                });
+            }
+        });
 
 
         final AlertDialog.Builder builder_service_area = new AlertDialog.Builder(getActivity(),R.style.alerttheme);
@@ -254,12 +254,29 @@ input_marital_status = (EditText)view.findViewById(R.id.input_marital_status);
     }
 
 
-
-
     public errorMessage validateinput(){
-        // create errormessage object
-        //change value to suit case
+        errorMessage.clear();
+        if(fullname.getText().toString().equals(""))new errorMessage("Full Name is empty");
+        if(nric.getText().toString().equals(""))new errorMessage("NRIC is empty");
+        if(input_nationality.getText().toString().equals(""))new errorMessage("Nationality is empty");
+        if(email.getText().toString().equals(""))new errorMessage("Email is empty");
+        if(phonenum.getText().toString().equals(""))new errorMessage("Phone number is empty");
+        if(input_dob.getText().toString().equals(""))new errorMessage("Date of Birth is empty");
+        if(input_marital_status.getText().toString().equals(""))new errorMessage("Martial Status is empty");
+        if(input_gender.getText().toString().equals(""))new errorMessage("Gender is empty");
+        if(address.getText().toString().equals(""))new errorMessage("Address is empty");
+        if(service_area.getText().toString().equals(""))new errorMessage("Service area is empty");
+        if(!email.getText().toString().equals("")){
+            if(!isValidEmailAddress(email.getText().toString()))new errorMessage("Incorrect email format");
+        }
         return new errorMessage();
+    }
+
+    public  boolean isValidEmailAddress(String email) {
+        String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
+        java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
+        java.util.regex.Matcher m = p.matcher(email);
+        return m.matches();
     }
 
 
@@ -272,7 +289,7 @@ input_marital_status = (EditText)view.findViewById(R.id.input_marital_status);
                 secaddress.getText().toString(),service_area.getText().toString(),nric.getText().toString()) ;
 
 
-        }
+    }
 
     /**
      * This interface must be implemented by activities that contain this

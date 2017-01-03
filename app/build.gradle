@@ -7,8 +7,8 @@ android {
         applicationId 'com.lovecareworks.healthcarepersonnel'
         minSdkVersion 17
         targetSdkVersion 23
-        versionCode 10
-        versionName '2.5'
+        versionCode 15
+        versionName '3.5'
         multiDexEnabled true
     }
     buildTypes {
@@ -53,5 +53,17 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.google.firebase:firebase-messaging:9.4.0'
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 apply plugin: 'com.google.gms.google-services'

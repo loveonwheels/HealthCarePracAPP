@@ -95,12 +95,21 @@ public class Utils {
                     .withTranslucentStatusBar(false)
                     .withActionBarDrawerToggle(false)
                     .addDrawerItems(
-                            new PrimaryDrawerItem().withName("Home").withIcon(GoogleMaterial.Icon.gmd_home).withIdentifier(1),
-                            new PrimaryDrawerItem().withName("Schedule").withIcon(GoogleMaterial.Icon.gmd_schedule).withIdentifier(3),
-                            new PrimaryDrawerItem().withName("Pending Reports").withIcon(GoogleMaterial.Icon.gmd_receipt).withIdentifier(4),
-                            new PrimaryDrawerItem().withName("Profile").withIcon(GoogleMaterial.Icon.gmd_account_circle).withIdentifier(6),
-                            new PrimaryDrawerItem().withName("Contact Us").withIcon(GoogleMaterial.Icon.gmd_mail).withIdentifier(7),
-                            new PrimaryDrawerItem().withName("Log Out").withIcon(R.drawable.ic_logout_24dp_color_text).withIdentifier(8)
+                            new PrimaryDrawerItem().withName("Home").withIdentifier(1),
+                            new PrimaryDrawerItem().withName("Schedule").withIdentifier(3),
+                            new PrimaryDrawerItem().withName("Pending Reports").withIdentifier(4),
+                            new PrimaryDrawerItem().withName("Profile").withIdentifier(6),
+                            new PrimaryDrawerItem().withName("Contact Us").withIdentifier(7),
+                            new PrimaryDrawerItem().withName("Log Out").withIdentifier(8)
+/*
+        new PrimaryDrawerItem().withName("Home").withIcon(GoogleMaterial.Icon.gmd_home).withIdentifier(1),
+                new PrimaryDrawerItem().withName("Schedule").withIcon(GoogleMaterial.Icon.gmd_schedule).withIdentifier(3),
+                new PrimaryDrawerItem().withName("Pending Reports").withIcon(GoogleMaterial.Icon.gmd_receipt).withIdentifier(4),
+                new PrimaryDrawerItem().withName("Profile").withIcon(GoogleMaterial.Icon.gmd_account_circle).withIdentifier(6),
+                new PrimaryDrawerItem().withName("Contact Us").withIcon(GoogleMaterial.Icon.gmd_mail).withIdentifier(7),
+                new PrimaryDrawerItem().withName("Log Out").withIcon(R.drawable.ic_logout_24dp_color_text).withIdentifier(8)
+
+                */
                     ).withOnDrawerListener(new Drawer.OnDrawerListener() {
                         @Override
                         public boolean equals(Object o) {

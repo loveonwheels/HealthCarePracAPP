@@ -37,6 +37,8 @@ import com.lovecareworks.healthcarepersonnel.R;
 import com.lovecareworks.healthcarepersonnel.classes.LocationUpdate;
 import com.lovecareworks.healthcarepersonnel.db.dbclasses.ScheduleTra;
 import com.lovecareworks.healthcarepersonnel.model.Appiontments;
+import com.lovecareworks.healthcarepersonnel.model.TimeSlots;
+import com.lovecareworks.healthcarepersonnel.util.TimeSlotUtil;
 import com.lovecareworks.healthcarepersonnel.webapi.FileUploadServic;
 import com.lovecareworks.healthcarepersonnel.webapi.RestUserService;
 import com.lovecareworks.healthcarepersonnel.webapi.ServiceGenerator;
@@ -44,11 +46,14 @@ import com.lovecareworks.healthcarepersonnel.webapi.ServiceGenerator;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.sql.Time;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import dmax.dialog.SpotsDialog;
 import okhttp3.ResponseBody;
@@ -98,12 +103,12 @@ public class Home extends Fragment implements GoogleApiClient.ConnectionCallback
     private static int DISPLACEMENT = 10; // 10 meters
 
 
-    TextView TxtClient, TxtPatient, TxtDate, TxtTime;
+    TextView TxtClient, TxtPatient, TxtDate, TxtTime,txtFirststarttime,txtFirstpatient,txtFirstclient, txtFirstservice,txtSndstarttime;
 
     private OnFragmentInteractionListener mListener;
 
     LinearLayout calHeader;
-    LinearLayout calHeader2,calHeader3;
+    LinearLayout firstlatertoday,secondlatertoday,gotoSchedule,emptySchedule,noblockedapp,nootherappointment;
 
     TableLayout WeekTable,WeekTable2,WeekTable3;
     boolean showweekView = true;
@@ -151,7 +156,12 @@ public class Home extends Fragment implements GoogleApiClient.ConnectionCallback
             // Building the GoogleApi client
             buildGoogleApiClient();
 
+       txtFirststarttime = (TextView) view.findViewById(R.id.firstLaterst);
+        txtSndstarttime = (TextView) view.findViewById(R.id.secondLaterst);
 
+        txtFirstpatient = (TextView) view.findViewById(R.id.firstLaterPatient);
+        txtFirstclient = (TextView) view.findViewById(R.id.firstLaterClient);
+        txtFirstservice = (TextView) view.findViewById(R.id.firstLaterService);
 
         TxtClient = (TextView) view.findViewById(R.id.txtClient);
         TxtPatient = (TextView) view.findViewById(R.id.txtPatient);
@@ -161,6 +171,13 @@ public class Home extends Fragment implements GoogleApiClient.ConnectionCallback
         txtDistance = (TextView) view.findViewById(R.id.txtDistance);
 
         homedetails = (LinearLayout) view.findViewById(R.id.homedetails);
+        firstlatertoday = (LinearLayout) view.findViewById(R.id.firstLaterToday);
+        secondlatertoday = (LinearLayout) view.findViewById(R.id.secondLaterToday);
+        gotoSchedule = (LinearLayout) view.findViewById(R.id.goToSchedule);
+        emptySchedule = (LinearLayout) view.findViewById(R.id.emptySchedule);
+        noblockedapp = (LinearLayout) view.findViewById(R.id.noblockedapp);
+        nootherappointment  = (LinearLayout) view.findViewById(R.id.nootherappointment);
+
         // tool.setOverflowIcon(getResources().getDrawable(R.drawable.arrowdown, getActivity().getTheme()));
         tool.setTitle("Home");
         tool.setNavigationIcon(R.drawable.showslide);
@@ -178,46 +195,195 @@ public class Home extends Fragment implements GoogleApiClient.ConnectionCallback
         });
 
 
-        final AlertDialog progressDialog = new SpotsDialog(getContext(), R.style.CustomDialog);
+
+
+
+           final AlertDialog progressDialog = new SpotsDialog(getContext(), R.style.CustomDialog);
 // To dismiss the dialog
         progressDialog.show();
-        Call<List<Appiontments>> call = restUserService.getService().GetCurrent(((Central) getActivity()).gethcp_id());
-        call.enqueue(new Callback<List<Appiontments>>() {
-            @Override
-            public void onResponse(Call<List<Appiontments>> call, Response<List<Appiontments>> response) {
-                int statusCode = response.code();
-                userAppiontments = response.body();
-                String msg = "here";
+
+        try {
+            Log.e("current hour",String.valueOf(TimeSlotUtil.getCurrenthour()));
+            Call<List<Appiontments>> call = restUserService.getService().GetCurrent(((Central) getActivity()).gethcp_id(), TimeSlotUtil.getCurrenthour());
+            call.enqueue(new Callback<List<Appiontments>>() {
+                @Override
+                public void onResponse(Call<List<Appiontments>> call, Response<List<Appiontments>> response) {
+                    int statusCode = response.code();
+                    userAppiontments = response.body();
+                    String msg = "here";
+
+
+                    if (statusCode == 200) {
+
+
+                        if (userAppiontments.size() > 0) {
+                            transformedRequest = new ArrayList<>();
+                            for (int j = 0; j < userAppiontments.size(); j++) {
+                                ScheduleTra newappreq = new ScheduleTra(userAppiontments.get(j));
+                                transformedRequest.add(newappreq);
+                            }
+
+
+                            if(userAppiontments.size() > 0){
+
+                                int hour = 0;
+                                Calendar appiontment = Calendar.getInstance();
+                                SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss aa");
+                                try {
+                                    appiontment.setTime(sdf.parse(userAppiontments.get(0).appiontment_date));
+                                    hour  = appiontment.get(Calendar.HOUR_OF_DAY);
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
+                                }
+
+
+                                Log.e("appoint hour",String.valueOf(hour));
+                                Log.e("current hour",String.valueOf(TimeSlotUtil.getCurrenthour()));
+
+                                Log.e("current hour",String.valueOf(TimeSlotUtil.getMinutes()));
+                                if((hour - 2) == TimeSlotUtil.getCurrenthour()){
+                                    TxtClient.setText(transformedRequest.get(0).sponsor_fullname);
+                                    TxtPatient.setText(transformedRequest.get(0).patient_fullname);
+                                    TxtDate.setText(transformedRequest.get(0).appiontment_date);
+                                    TxtTime.setText(transformedRequest.get(0).appiontment_time);
+                                    txtnoapp.setVisibility(View.GONE);
+                                    homedetails.setVisibility(View.VISIBLE);
+                                    firstlatertoday.setVisibility(View.GONE);
+                                    secondlatertoday.setVisibility(View.GONE);
+                                    gotoSchedule.setVisibility(View.GONE);
+                                    emptySchedule.setVisibility(View.GONE);
+                                    noblockedapp.setVisibility(View.GONE);
+
+                                    if(userAppiontments.size() > 1){
+                                        try {
+                                            appiontment.setTime(sdf.parse(userAppiontments.get(1).appiontment_date));
+                                            hour  = appiontment.get(Calendar.HOUR_OF_DAY);
+                                            TimeSlotUtil.getTimeStringValue(hour);
+
+                                            txtFirststarttime.setText( TimeSlotUtil.getTimeStringValue(hour));
+                                            txtSndstarttime.setText( TimeSlotUtil.getTimeStringValue(hour+1));
+                                            txtFirstpatient.setText(userAppiontments.get(1).patient_fullname);
+                                            txtFirstclient.setText(userAppiontments.get(1).sponsor_fullname);
+                                            txtFirstservice.setText(userAppiontments.get(1).servicedescription);
+
+                                        } catch (ParseException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                    if(userAppiontments.size() > 2){
+
+                                    }
+
+                                    if(userAppiontments.size() == 1){
+                                      nootherappointment.setVisibility(View.VISIBLE);
+                                    }
+                                }else if((hour - 1) == TimeSlotUtil.getCurrenthour()){
+
+                                    if(userAppiontments.size() == 1){
+                                        nootherappointment.setVisibility(View.VISIBLE);
+                                    }
+
+
+                                    if(TimeSlotUtil.getMinutes() < 15){
+                                        TxtClient.setText(transformedRequest.get(0).sponsor_fullname);
+                                        TxtPatient.setText(transformedRequest.get(0).patient_fullname);
+                                        TxtDate.setText(transformedRequest.get(0).appiontment_date);
+                                        TxtTime.setText(transformedRequest.get(0).appiontment_time);
+                                        txtnoapp.setVisibility(View.GONE);
+                                        homedetails.setVisibility(View.VISIBLE);
+                                        firstlatertoday.setVisibility(View.GONE);
+                                        secondlatertoday.setVisibility(View.GONE);
+                                        gotoSchedule.setVisibility(View.GONE);
+                                        emptySchedule.setVisibility(View.GONE);
+                                        noblockedapp.setVisibility(View.GONE);
+                                    }else{
 
 
 
-                if (statusCode == 200) {
+                                        if(userAppiontments.size() > 1) {
 
 
-                    if (userAppiontments.size() > 0) {
-                        transformedRequest = new ArrayList<>();
-                        for (int j = 0; j < userAppiontments.size(); j++) {
-                            ScheduleTra newappreq = new ScheduleTra(userAppiontments.get(j));
-                            transformedRequest.add(newappreq);
+                                            try {
+                                                appiontment.setTime(sdf.parse(userAppiontments.get(1).appiontment_date));
+                                                hour  = appiontment.get(Calendar.HOUR_OF_DAY);
+                                            } catch (ParseException e) {
+                                                e.printStackTrace();
+                                            }
+
+                                            if(hour-2 <= TimeSlotUtil.getCurrenthour()) {
+                                                TxtClient.setText(transformedRequest.get(1).sponsor_fullname);
+                                                TxtPatient.setText(transformedRequest.get(1).patient_fullname);
+                                                TxtDate.setText(transformedRequest.get(1).appiontment_date);
+                                                TxtTime.setText(transformedRequest.get(1).appiontment_time);
+                                                txtnoapp.setVisibility(View.GONE);
+                                                homedetails.setVisibility(View.VISIBLE);
+                                                firstlatertoday.setVisibility(View.GONE);
+                                                secondlatertoday.setVisibility(View.GONE);
+                                                gotoSchedule.setVisibility(View.GONE);
+                                                emptySchedule.setVisibility(View.GONE);
+                                                noblockedapp.setVisibility(View.GONE);
+                                            }else{
+                                                try {
+                                                    appiontment.setTime(sdf.parse(userAppiontments.get(1).appiontment_date));
+                                                    hour  = appiontment.get(Calendar.HOUR_OF_DAY);
+                                                    TimeSlotUtil.getTimeStringValue(hour);
+
+                                                    txtFirststarttime.setText( TimeSlotUtil.getTimeStringValue(hour));
+                                                    txtSndstarttime.setText( TimeSlotUtil.getTimeStringValue(hour+1));
+                                                    txtFirstpatient.setText(userAppiontments.get(1).patient_fullname);
+                                                    txtFirstclient.setText(userAppiontments.get(1).sponsor_fullname);
+                                                    txtFirstservice.setText(userAppiontments.get(1).servicedescription);
+
+                                                    firstlatertoday.setVisibility(View.VISIBLE);
+                                                    gotoSchedule.setVisibility(View.GONE);
+                                                    emptySchedule.setVisibility(View.GONE);
+                                                    noblockedapp.setVisibility(View.GONE);
+
+                                                    if(userAppiontments.size() > 2) {
+                                                        txtFirststarttime.setText( TimeSlotUtil.getTimeStringValue(hour));
+                                                        txtSndstarttime.setText( TimeSlotUtil.getTimeStringValue(hour+1));
+                                                        txtFirstpatient.setText(userAppiontments.get(1).patient_fullname);
+                                                        txtFirstclient.setText(userAppiontments.get(1).sponsor_fullname);
+                                                        txtFirstservice.setText(userAppiontments.get(1).servicedescription);
+
+                                                        secondlatertoday.setVisibility(View.VISIBLE);
+
+                                                    }
+                                                } catch (ParseException e) {
+                                                    e.printStackTrace();
+                                                }
+                                            }
+                                        }else{
+                                            checkSchedule(progressDialog);
+                                        }
+
+                                    }
+                                }else{
+                                    //location
+                                    firstlatertoday.setVisibility(View.VISIBLE);
+                                    secondlatertoday.setVisibility(View.VISIBLE);
+                                }
+                            }
+
+
+                            progressDialog.hide();
+                        } else {
+
+                            // getActivity().getSupportFragmentManager().beginTransaction().add(R.id.framei, new Schedule(), "myschedule").addToBackStack("myschedule").commit();
+
+
+                            checkSchedule(progressDialog);
                         }
 
 
-                        TxtClient.setText(transformedRequest.get(0).sponsor_fullname);
-                        TxtPatient.setText(transformedRequest.get(0).patient_fullname);
-                        TxtDate.setText( transformedRequest.get(0).appiontment_date);
-                        TxtTime.setText(transformedRequest.get(0).appiontment_time);
-                        txtnoapp.setVisibility(View.GONE);
-                        homedetails.setVisibility(View.VISIBLE);
-                        progressDialog.hide();
+                        //  progress.dismiss();
                     } else {
-
-                       // getActivity().getSupportFragmentManager().beginTransaction().add(R.id.framei, new Schedule(), "myschedule").addToBackStack("myschedule").commit();
-
-/*
+                        Log.e("dfdf2", msg);
+                        msg = "error again";
                         transformedRequest = null;
+                        progressDialog.hide();
                         homedetails.setVisibility(View.GONE);
                         txtnoapp.setVisibility(View.VISIBLE);
-
 
                         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                         builder.setMessage("No appiontment Found!")
@@ -229,49 +395,28 @@ public class Home extends Fragment implements GoogleApiClient.ConnectionCallback
                                 });
                         AlertDialog alert = builder.create();
                         alert.show();
-                        */
                         progressDialog.hide();
+
+                        Toast.makeText(getActivity(), "request failed", Toast.LENGTH_LONG).show();
+
                     }
-
-
-                    //  progress.dismiss();
-                } else {
-                    Log.e("dfdf2", msg);
-                    msg = "error again";
-                    transformedRequest = null;
-                    progressDialog.hide();
-                    homedetails.setVisibility(View.GONE);
-                    txtnoapp.setVisibility(View.VISIBLE);
-
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                    builder.setMessage("No appiontment Found!")
-                            .setCancelable(false)
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-
-                                }
-                            });
-                    AlertDialog alert = builder.create();
-                    alert.show();
-                    progressDialog.hide();
-
-                    Toast.makeText(getActivity(), "request failed", Toast.LENGTH_LONG).show();
+                    Log.e("dfdf1", msg);
 
                 }
-                Log.e("dfdf1", msg);
-
-            }
 
 
-            @Override
-            public void onFailure(Call<List<Appiontments>> call, Throwable t) {
-                //   progress.dismiss();
-                progressDialog.hide();
-                Toast.makeText(getActivity(), "request failed", Toast.LENGTH_LONG).show();
+                @Override
+                public void onFailure(Call<List<Appiontments>> call, Throwable t) {
+                    //   progress.dismiss();
+                    progressDialog.hide();
+                    Toast.makeText(getActivity(), "request failed", Toast.LENGTH_LONG).show();
 
-                //   Log.e("dfdf", t.toString());
-            }
-        });
+                    //   Log.e("dfdf", t.toString());
+                }
+            });
+        }catch(Exception ex){
+
+        }
 
 
         LinearLayout open = (LinearLayout) view.findViewById(R.id.btn_call);
@@ -307,6 +452,14 @@ public class Home extends Fragment implements GoogleApiClient.ConnectionCallback
             @Override
             public void onClick(View v) {
                 openwaze(transformedRequest.get(0).patient_address);
+            }
+        });
+
+        gotoSchedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager().beginTransaction().add(R.id.framei, new Schedule(), "myschedule").setCustomAnimations(R.anim.slide_in_left, 0).addToBackStack("myschedule").commit();
+
             }
         });
         return view;
@@ -598,6 +751,59 @@ public void updateLocation(){
 
 }
 
+
+
+    public void checkSchedule(final AlertDialog progressDialog)
+    {
+        Call<Boolean> call = restUserService.getService().isScheduleAvailable(((Central) getActivity()).gethcp_id());
+        call.enqueue(new Callback<Boolean>() {
+            @Override
+            public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                int statusCode = response.code();
+                Boolean HAS_RESCHEDULE = response.body();
+                String msg = "here";
+
+
+                if (statusCode == 200) {
+
+                Toast.makeText(getContext(),String.valueOf(HAS_RESCHEDULE),Toast.LENGTH_LONG).show();
+                    if(HAS_RESCHEDULE ){
+                        homedetails.setVisibility(View.GONE);
+                        firstlatertoday.setVisibility(View.GONE);
+                        secondlatertoday.setVisibility(View.GONE);
+                        gotoSchedule.setVisibility(View.GONE);
+                        emptySchedule.setVisibility(View.GONE);
+                        noblockedapp.setVisibility(View.VISIBLE);
+                        nootherappointment.setVisibility(View.GONE);
+                    }else{
+                        homedetails.setVisibility(View.GONE);
+                        firstlatertoday.setVisibility(View.GONE);
+                        secondlatertoday.setVisibility(View.GONE);
+                        gotoSchedule.setVisibility(View.VISIBLE);
+                        emptySchedule.setVisibility(View.VISIBLE);
+                        noblockedapp.setVisibility(View.GONE);
+                        nootherappointment.setVisibility(View.GONE);
+                    }
+                    //  progress.dismiss();
+                } else {
+
+
+                }
+                Log.e("dfdf1", msg);
+                progressDialog.hide();
+            }
+
+
+            @Override
+            public void onFailure(Call<Boolean> call, Throwable t) {
+                //   progress.dismiss();
+                progressDialog.hide();
+                Toast.makeText(getActivity(), "request failed", Toast.LENGTH_LONG).show();
+
+                //   Log.e("dfdf", t.toString());
+            }
+        });
+    }
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated

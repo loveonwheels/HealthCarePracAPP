@@ -49,6 +49,7 @@ public class registration3 extends Fragment {
     private String mParam2;
     ImageView imageView ;
     RadioGroup radiogroup;
+    Boolean Imagepicked = false;
     private static int RESULT_LOAD_IMAGE = 1;
     private static int RESULT_LOAD_IMG = 1;
     private RestUserService restUserService = new RestUserService();
@@ -146,6 +147,7 @@ public class registration3 extends Fragment {
 
 
                 imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+                Imagepicked = true;
                 /*
                 String[] filePathColumn = { MediaStore.Images.Media.DATA };
 
@@ -168,8 +170,10 @@ public class registration3 extends Fragment {
             } else {
                 Toast.makeText(getActivity(), "You haven't picked Image",
                         Toast.LENGTH_LONG).show();
+                Imagepicked = false;
             }
         } catch (Exception e) {
+            Imagepicked = false;
             Toast.makeText(getActivity(), "Something went wrong", Toast.LENGTH_LONG)
                     .show();
         }
@@ -280,6 +284,14 @@ public File getfile(){
 
 return false;
     }
+
+    public Boolean imagePicked(){
+        return Imagepicked;
+
+    }
+
+
+
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);

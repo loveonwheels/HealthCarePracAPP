@@ -72,7 +72,7 @@ public class Welcomepage extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_welcomepage, container, false);
         TextView signup = (TextView)view.findViewById(R.id.textView36);
-        Button signBtn = (Button)view.findViewById(R.id.signBtn);
+        Button signBtn = (Button)view.findViewById(R.id.signBtnr);
         signBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
