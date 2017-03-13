@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:845793832949:android:761ea532becadd39",
+        "mobilesdk_app_id": "1:845793832949:android:f3dcc0ac6a9ad021",
         "android_client_info": {
-          "package_name": "com.lovecareworks.healthcarepersonnel"
+          "package_name": "com.mSIHAT.hcp"
         }
       },
       "oauth_client": [

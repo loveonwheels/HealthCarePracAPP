@@ -1,0 +1,144 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.user.hcp.fragments.AppReqFragement">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="0dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/noteDeleteBtn">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary">
+                <android.support.design.widget.AppBarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:theme="@style/AppTheme.AppBarOverlay"
+                    android:id="@+id/viewnotificationdetails">
+
+                    <android.support.v7.widget.Toolbar
+                        android:id="@+id/toolnotificationdetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:background="?attr/colorPrimary"
+                        app:titleTextAppearance="@style/yourstyle"
+                        app:popupTheme="@style/AppTheme.PopupOverlay" >
+
+
+                    </android.support.v7.widget.Toolbar>
+
+
+                </android.support.design.widget.AppBarLayout>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/noteCloseBtn"
+                        android:background="@drawable/ic_back"
+                        android:layout_gravity="center_vertical"
+                        android:padding="10dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mon, 24 Jun 2016"
+                        android:id="@+id/txt_appiontment_header"
+                        android:textAlignment="center"
+                        android:layout_gravity="center"
+                        android:textColor="#ffffff"
+                        android:textStyle="bold" />
+
+                </TableRow>
+
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/scrollView3"
+                android:layout_alignParentTop="true"
+                android:background="#ffffff"
+                android:layout_above="@+id/noteDeleteBtn">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/button_material_light">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:background="#ffffff">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="B-9-12 Strenling condomium , Kelana Jaya, Malaysia"
+                            android:id="@+id/appheader"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="Details"
+                            android:id="@+id/textView116"
+                            android:textSize="13dp"
+                            android:layout_marginTop="10dp" />
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="he is crazy, he is crazy, he is crazy, he is crazy, he is crazy,he is crazy, he is crazy, he is crazy, he is crazy, he is crazy"
+                            android:id="@+id/appdetails"
+                            android:textColor="@color/abc_search_url_text_pressed"
+                            android:textSize="16dp" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </ScrollView>
+        </LinearLayout>
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/noteDeleteBtn"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/delete" />
+
+    </RelativeLayout>
+
+</FrameLayout>

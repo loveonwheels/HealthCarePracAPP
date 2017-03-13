@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.lovecareworks.healthcarepersonnel.fragements.openingfragment">
+    tools:context="com.mSIHAT.hcp.fragements.openingfragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

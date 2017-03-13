@@ -10,16 +10,15 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#ffffff">
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@color/button_material_light"
-            android:padding="1dp">
+            android:layout_height="fill_parent"
+            android:background="#ffffff"
+            android:padding="1dp"
+            android:weightSum="1">
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -30,7 +29,7 @@
                 <RelativeLayout
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:background="@drawable/menuselector"
+                    android:background="@drawable/ic_back"
                     android:layout_gravity="center_vertical"></RelativeLayout>
 
                 <TableRow
@@ -49,277 +48,301 @@
                 </TableRow>
             </LinearLayout>
 
-            <LinearLayout
-                android:orientation="vertical"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:background="#ffffff">
+                android:layout_height="458dp"
+                android:id="@+id/scrollView2"
+                android:layout_weight="0.98">
 
                 <LinearLayout
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <com.mikhaellopez.circularimageview.CircularImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        app:civ_border="false"
-                        app:civ_shadow="true"
-                        app:civ_shadow_radius="10"
-                        app:civ_shadow_color="#a81783"
-                        android:id="@+id/CImg"
-                        android:layout_marginLeft="10dp" />
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:background="#ffffff">
 
                     <LinearLayout
-                        android:orientation="vertical"
+                        android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="Patient&apos;s Name"
-                            android:id="@+id/textView110"
-                            android:textSize="13dp" />
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Fred Ollison"
-                            android:id="@+id/textView111"
-                            android:textColor="@color/abc_search_url_text_pressed"
-                            android:textSize="14dp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:text="Patient&apos;s Name"
+                                android:id="@+id/textView110"
+                                android:textSize="13dp"
+                                android:textColor="#5d5b5b" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="Client&apos;s Name"
-                            android:id="@+id/textView112"
-                            android:textSize="13dp"
-                            android:layout_marginTop="10dp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="Fred Ollison"
+                                android:id="@+id/textView111"
+                                android:textColor="@color/abc_search_url_text_pressed"
+                                android:textSize="14dp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Mark Jacobs"
-                            android:id="@+id/textView113"
-                            android:textColor="@color/abc_search_url_text_pressed"
-                            android:textSize="14dp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:text="Client&apos;s Name"
+                                android:id="@+id/textView112"
+                                android:textSize="13dp"
+                                android:layout_marginTop="10dp"
+                                android:textColor="#5d5b5b" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="Mark Jacobs"
+                                android:id="@+id/textView113"
+                                android:textColor="@color/abc_search_url_text_pressed"
+                                android:textSize="14dp" />
+                        </LinearLayout>
+
+
                     </LinearLayout>
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Address"
+                        android:id="@+id/textView90"
+                        android:textSize="13dp"
+                        android:layout_marginTop="10dp"
+                        android:textColor="#5d5b5b" />
 
-                </LinearLayout>
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Address"
-                    android:id="@+id/textView90"
-                    android:textSize="13dp"
-                    android:layout_marginTop="10dp" />
+                        <TextView
+                            android:layout_width="320dp"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="B-9-12 Strenling condomium , Kelana Jaya, Malaysia"
+                            android:id="@+id/textView89"
+                            android:textColor="@color/abc_search_url_text_pressed"
+                            android:textSize="14dp" />
 
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:stretchColumns="*" >
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" >
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceSmall"
+                                        android:text="Mobile Number"
+                                        android:id="@+id/textView114"
+                                        android:textSize="13dp"
+                                        android:layout_marginTop="10dp"
+                                        android:textColor="#5d5b5b" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceMedium"
+                                        android:text="0146302577"
+                                        android:id="@+id/textView115"
+                                        android:textColor="@color/abc_search_url_text_pressed"
+                                        android:textSize="14dp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="10dp"
+                                    android:layout_height="match_parent" >
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceSmall"
+                                        android:text="Gender"
+                                        android:id="@+id/textView120"
+                                        android:textSize="13dp"
+                                        android:layout_marginTop="10dp"
+                                        android:textColor="#5d5b5b" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceMedium"
+                                        android:text="Male"
+                                        android:id="@+id/textView121"
+                                        android:textColor="@color/abc_search_url_text_pressed"
+                                        android:layout_gravity="left"
+                                        android:textSize="14dp" />
+                                </LinearLayout>
+                            </TableRow>
+                        </TableLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:stretchColumns="*">
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceSmall"
+                                        android:text="Date"
+                                        android:id="@+id/textView92"
+                                        android:textSize="13dp"
+                                        android:layout_marginTop="10dp"
+                                        android:textColor="#5d5b5b" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceMedium"
+                                        android:text="Mon , 24 Jun 2016"
+                                        android:id="@+id/textView93"
+                                        android:textColor="@color/abc_search_url_text_pressed"
+                                        android:textSize="14dp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="60dp"
+                                    android:layout_height="match_parent">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceSmall"
+                                        android:text="Time"
+                                        android:id="@+id/textView91"
+                                        android:textSize="13dp"
+                                        android:layout_marginTop="10dp"
+                                        android:textColor="#5d5b5b" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceMedium"
+                                        android:text="11:00 AM"
+                                        android:id="@+id/textView94"
+                                        android:textColor="@color/abc_search_url_text_pressed"
+                                        android:layout_gravity="left"
+                                        android:textSize="14dp" />
+                                </LinearLayout>
+                            </TableRow>
+                        </TableLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Service Type"
+                        android:id="@+id/textView62"
+                        android:textSize="13dp"
+                        android:layout_marginTop="10dp"
+                        android:textColor="#5d5b5b" />
+
+                    <TextView
+                        android:layout_width="320dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Physiotheraphy"
+                        android:id="@+id/textView63"
+                        android:textColor="@color/abc_search_url_text_pressed"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Ailment Description"
+                        android:id="@+id/textView118"
+                        android:textSize="13dp"
+                        android:layout_marginTop="10dp"
+                        android:textColor="#5d5b5b" />
 
                     <TextView
                         android:layout_width="320dp"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="B-9-12 Strenling condomium , Kelana Jaya, Malaysia"
-                        android:id="@+id/textView89"
+                        android:id="@+id/textView119"
+                        android:textColor="@color/abc_search_url_text_pressed"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Additional Information"
+                        android:id="@+id/textView116"
+                        android:textSize="13dp"
+                        android:layout_marginTop="10dp"
+                        android:textColor="#5d5b5b" />
+
+                    <TextView
+                        android:layout_width="320dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="he is crazy, he is crazy, he is crazy, he is crazy, he is crazy,he is crazy, he is crazy, he is crazy, he is crazy, he is crazy"
+                        android:id="@+id/textView117"
                         android:textColor="@color/abc_search_url_text_pressed"
                         android:textSize="14dp" />
 
                 </LinearLayout>
+            </ScrollView>
 
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TableLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:stretchColumns="*" >
-
-                        <TableRow
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" >
-
-                            <LinearLayout
-                                android:orientation="vertical"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent" >
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textAppearance="?android:attr/textAppearanceSmall"
-                                    android:text="Mobile Number"
-                                    android:id="@+id/textView114"
-                                    android:textSize="13dp"
-                                    android:layout_marginTop="10dp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textAppearance="?android:attr/textAppearanceMedium"
-                                    android:text="0146302577"
-                                    android:id="@+id/textView115"
-                                    android:textColor="@color/abc_search_url_text_pressed"
-                                    android:textSize="14dp" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:orientation="vertical"
-                                android:layout_width="10dp"
-                                android:layout_height="match_parent" >
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textAppearance="?android:attr/textAppearanceSmall"
-                                    android:text="Gender"
-                                    android:id="@+id/textView120"
-                                    android:textSize="13dp"
-                                    android:layout_marginTop="10dp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textAppearance="?android:attr/textAppearanceMedium"
-                                    android:text="Male"
-                                    android:id="@+id/textView121"
-                                    android:textColor="@color/abc_search_url_text_pressed"
-                                    android:layout_gravity="left"
-                                    android:textSize="14dp" />
-                            </LinearLayout>
-                        </TableRow>
-                    </TableLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TableLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:stretchColumns="*">
-
-                        <TableRow
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <LinearLayout
-                                android:orientation="vertical"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textAppearance="?android:attr/textAppearanceSmall"
-                                    android:text="Date"
-                                    android:id="@+id/textView92"
-                                    android:textSize="13dp"
-                                    android:layout_marginTop="10dp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textAppearance="?android:attr/textAppearanceMedium"
-                                    android:text="Mon , 24 Jun 2016"
-                                    android:id="@+id/textView93"
-                                    android:textColor="@color/abc_search_url_text_pressed"
-                                    android:textSize="14dp" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:orientation="vertical"
-                                android:layout_width="60dp"
-                                android:layout_height="match_parent">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textAppearance="?android:attr/textAppearanceSmall"
-                                    android:text="Time"
-                                    android:id="@+id/textView91"
-                                    android:textSize="13dp"
-                                    android:layout_marginTop="10dp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textAppearance="?android:attr/textAppearanceMedium"
-                                    android:text="11:00 AM"
-                                    android:id="@+id/textView94"
-                                    android:textColor="@color/abc_search_url_text_pressed"
-                                    android:layout_gravity="left"
-                                    android:textSize="14dp" />
-                            </LinearLayout>
-                        </TableRow>
-                    </TableLayout>
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Ailment Description"
-                    android:id="@+id/textView118"
-                    android:textSize="13dp"
-                    android:layout_marginTop="10dp" />
-
-                <TextView
-                    android:layout_width="320dp"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="B-9-12 Strenling condomium , Kelana Jaya, Malaysia"
-                    android:id="@+id/textView119"
-                    android:textColor="@color/abc_search_url_text_pressed"
-                    android:textSize="14dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Additional Information"
-                    android:id="@+id/textView116"
-                    android:textSize="13dp"
-                    android:layout_marginTop="10dp" />
-
-                <TextView
-                    android:layout_width="320dp"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="he is crazy, he is crazy, he is crazy, he is crazy, he is crazy,he is crazy, he is crazy, he is crazy, he is crazy, he is crazy"
-                    android:id="@+id/textView117"
-                    android:textColor="@color/abc_search_url_text_pressed"
-                    android:textSize="14dp" />
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Details"
-                    android:id="@+id/button4"
-                    android:layout_marginTop="20dp"
-                    android:background="@color/colorPrimary"
-                    android:textColor="#ffffff"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Access Report"
+                android:id="@+id/button4"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorPrimary"
+                android:textColor="#ffffff" />
 
         </LinearLayout>
     </RelativeLayout>

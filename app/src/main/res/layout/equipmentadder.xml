@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="10dp"
+        android:layout_weight="0.15"
+        android:id="@+id/mainlay">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:id="@+id/linearLayout"
+            android:layout_alignParentTop="true">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/input_ins_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textColor="@drawable/edit_text_selector"
+                    android:hint="Equipment" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_inst1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/inst1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:inputType="none"
+                    android:textColor="@drawable/edit_text_selector"
+                    android:editable="false"
+                    android:hint="Recommeded Price" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_award"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/input_award"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@drawable/edit_text_selector"
+                    android:hint="Your Price" />
+            </android.support.design.widget.TextInputLayout>
+
+
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*"
+            android:id="@+id/addlay"
+            android:layout_below="@+id/linearLayout"
+            android:visibility="visible" >
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/btn_sch_cancel"
+                android:visibility="visible" >
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ok"
+                    android:id="@+id/btn_sch_ok"
+                    android:textColor="#ffffff"
+                    android:drawableEnd="@drawable/ic_check_24dp"
+                    android:background="@color/colorPrimary"
+                    android:textAlignment="textStart"
+                    android:layout_below="@+id/linearLayout"
+                    android:layout_alignEnd="@+id/linearLayout"
+                    android:paddingRight="10dp"
+                    android:padding="10dp" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cancel"
+                    android:id="@+id/btn_sch_cancel"
+                    android:textColor="#ffffff"
+                    android:background="@color/colorPrimary"
+                    android:layout_marginLeft="2dp"
+                    android:drawableEnd="@drawable/ic_clear_24dp"
+                    android:padding="10dp"
+                    android:layout_marginRight="2dp"
+                    android:textAlignment="textStart"
+                    android:layout_alignTop="@+id/btn_sch_ok"
+                    android:layout_toStartOf="@+id/btn_sch_ok" />
+
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*"
+            android:id="@+id/edtsave"
+            android:layout_below="@+id/linearLayout"
+            android:visibility="gone" >
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/btn_sch_cancel"
+                android:visibility="visible" >
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Save"
+                    android:id="@+id/btnSave"
+                    android:textColor="#ffffff"
+                    android:background="#288659"
+                    android:layout_marginLeft="2dp"
+                    android:drawableEnd="@drawable/ic_save_24dp"
+                    android:padding="10dp"
+                    android:layout_marginRight="2dp"
+                    android:textAlignment="textStart"
+                    android:layout_alignTop="@+id/btn_sch_ok"
+                    android:layout_toStartOf="@+id/btn_sch_ok" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cancel"
+                    android:id="@+id/btnCan"
+                    android:textColor="#ffffff"
+                    android:background="@color/colorPrimary"
+                    android:layout_marginLeft="2dp"
+                    android:drawableEnd="@drawable/ic_clear_24dp"
+                    android:padding="10dp"
+                    android:layout_marginRight="2dp"
+                    android:textAlignment="textStart"
+                    android:layout_alignTop="@+id/btn_sch_ok"
+                    android:layout_toStartOf="@+id/btn_sch_ok"
+                    android:visibility="visible" />
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*"
+            android:id="@+id/editbtns"
+            android:layout_below="@+id/linearLayout"
+            android:visibility="gone">
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/btn_sch_cancel"
+                android:visibility="visible">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Edit"
+                    android:id="@+id/btnEdit"
+                    android:textColor="#ffffff"
+                    android:background="#2851b0"
+                    android:layout_marginLeft="2dp"
+                    android:drawableEnd="@drawable/ic_event_note_24dp"
+                    android:padding="10dp"
+                    android:layout_marginRight="2dp"
+                    android:textAlignment="textStart"
+                    android:layout_alignTop="@+id/btn_sch_ok"
+                    android:layout_toStartOf="@+id/btn_sch_ok" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Delete"
+                    android:id="@+id/btnDel"
+                    android:textColor="#ffffff"
+                    android:background="#c13535"
+                    android:layout_marginLeft="2dp"
+                    android:drawableEnd="@drawable/ic_delete_24dp"
+                    android:padding="10dp"
+                    android:layout_marginRight="2dp"
+                    android:textAlignment="textStart"
+                    android:layout_alignTop="@+id/btn_sch_ok"
+                    android:layout_toStartOf="@+id/btn_sch_ok" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Close"
+                    android:id="@+id/btnClose"
+                    android:textColor="#ffffff"
+                    android:background="@color/colorPrimary"
+                    android:layout_marginLeft="2dp"
+                    android:drawableEnd="@drawable/ic_clear_24dp"
+                    android:padding="10dp"
+                    android:layout_marginRight="2dp"
+                    android:textAlignment="textStart"
+                    android:layout_alignTop="@+id/btn_sch_ok"
+                    android:layout_toStartOf="@+id/btn_sch_ok"
+                    android:visibility="visible" />
+            </TableRow>
+        </TableLayout>
+
+    </RelativeLayout>
+</LinearLayout>

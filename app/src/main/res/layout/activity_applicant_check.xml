@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:paddingBottom="0dp"
     android:background="#ffffff"
-    tools:context="com.lovecareworks.healthcarepersonnel.RegistrationActivity">
+    tools:context="com.mSIHAT.hcp.RegistrationActivity">
 
     <LinearLayout
         android:id="@+id/buttons_layout"

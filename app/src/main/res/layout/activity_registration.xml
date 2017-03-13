@@ -3,15 +3,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingBottom="0dp"
     android:background="#ffffff"
-    tools:context="com.lovecareworks.healthcarepersonnel.RegistrationActivity">
+    tools:context="com.mSIHAT.hcp.RegistrationActivity">
 
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:id="@+id/viewnotificationhub">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarnotificationhub"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:title="Registration"
+        app:titleTextColor="@color/md_white_1000"
+        app:popupTheme="@style/AppTheme.PopupOverlay" >
+
+
+    </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/registrationcontainer"
-        android:layout_above="@+id/buttons_layout">
+        android:layout_above="@+id/buttons_layout"
+        android:layout_below="@+id/viewnotificationhub">
 
     </FrameLayout>
     <LinearLayout

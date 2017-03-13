@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.lovecareworks.healthcarepersonnel.fragements.Home"
+    tools:context="com.mSIHAT.hcp.fragements.Home"
     android:background="@drawable/background">
 
     <!-- TODO: Update blank fragment layout -->
@@ -24,14 +24,18 @@
             android:id="@+id/toolbar1"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" >
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            >
 
 
         </android.support.v7.widget.Toolbar>
 
 
     </android.support.design.widget.AppBarLayout>
+
+
+
 
         <ScrollView
             android:layout_width="fill_parent"
@@ -304,21 +308,6 @@
                     android:layout_marginTop="10dp"
                     android:visibility="gone" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Later today"
-                    android:id="@+id/textView20"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textStyle="bold" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/common_google_signin_btn_text_light_focused"
-                    android:layout_marginBottom="2dp" />
-
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
@@ -391,7 +380,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:id="@+id/linearLayout12" >
+                        android:id="@+id/linearLayout12"
+                        android:visibility="gone">
 
                         <RelativeLayout
                             android:layout_width="5dp"
@@ -572,6 +562,91 @@
                             android:id="@+id/textView33"
                             android:textColor="@color/button_material_dark" />
                     </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Account Summary"
+                    android:id="@+id/textView61"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/common_google_signin_btn_text_light_focused"
+                    android:layout_marginBottom="2dp" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/linearLayout9"
+                    android:layout_marginTop="5dp">
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:stretchColumns="*">
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="fill_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="1dp"
+                                android:background="@drawable/cell"
+                                android:padding="5dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceLarge"
+                                    android:text="RM 100"
+                                    android:id="@+id/textView43"
+                                    android:layout_gravity="center_horizontal" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:text="Total Amount not paid"
+                                    android:id="@+id/textView51"
+                                    android:layout_gravity="center_horizontal" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="fill_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="1dp"
+                                android:background="@drawable/cell"
+                                android:padding="5dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceLarge"
+                                    android:text="18"
+                                    android:id="@+id/textView47"
+                                    android:layout_gravity="center_horizontal" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:text="Report Not submitted"
+                                    android:id="@+id/textView52"
+                                    android:layout_gravity="center_horizontal" />
+                            </LinearLayout>
+                        </TableRow>
+                    </TableLayout>
                 </LinearLayout>
 
             </LinearLayout>

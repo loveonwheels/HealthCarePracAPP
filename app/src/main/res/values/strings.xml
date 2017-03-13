@@ -4,7 +4,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hint_name">Full Name</string>
-    <string name="app_name">LoveWorks (HCP)</string>
+    <string name="app_name">mSIHAT (ISP)</string>
     <string name="cancel">Cancel</string>
 
     <string-array name="marital_status">
@@ -13,8 +13,10 @@
     </string-array>
 
     <string-array name="reglongclick">
-        <item>Edit</item>
-        <item>Delete</item>
+        <item>Call</item>
+        <item>Navigate to</item>
+        <item>View report</item>
+        <item>Cancel</item>
     </string-array>
 
 
@@ -24,18 +26,20 @@
     </string-array>
 
     <string-array name="prac">
-        <item>Doctor</item>
-        <item>Nurse</item>
-        <item>Physiotheraphy</item>
-        <item>Care Giver</item>
+        <item>Nursing (General)</item>
+        <item>Nursing (Procedure Only)</item>
+        <item>Physiotherapy</item>
+        <item>Caregiver</item>
     </string-array>
 
     <string-array name="service_area">
-        <item>Kelana Jaya</item>
-        <item>Petaling Jaya</item>
-        <item>Damansara</item>
-        <item>Nilai</item>
-        <item>Seremban</item>
+        <item>Kuala Lumpur and Ampang</item>
+        <item>Klang</item>
+        <item>Petaling Jaya,Damansara, Subang Jaya and Shah Alam</item>
+        <item>Kajang</item>
+        <item>Selayang</item>
+        <item>Putrajaya and Cyberjaya</item>
+        <item>Sepang</item>
     </string-array>
 
     <string-array name="renewal_period">
@@ -43,10 +47,11 @@
         <item>Monthly</item>
     </string-array>
 
-    <string name="declaration">Do you accept the terms and condition for providing service ( Note :this license agreement is provisional and only applies to the alpha testing period
-        ) Futhermore no aspect/part of this application should be shared, reproduce in whole or part with any third party. By accepting these conditions
-        you agree to the terms and condition of this application
+    <string name="declaration">jgh
+
     </string>
+
+    <string name="termsandcond"><a href="http://www.msihat.com/termsandconditions.html/">Please Click here to view the Terms and Conditions</a></string>
 
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_central">Central</string>

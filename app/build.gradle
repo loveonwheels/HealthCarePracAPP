@@ -4,11 +4,11 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
     defaultConfig {
-        applicationId 'com.lovecareworks.healthcarepersonnel'
+        applicationId 'com.mSIHAT.hcp'
         minSdkVersion 17
         targetSdkVersion 23
-        versionCode 15
-        versionName '3.5'
+        versionCode 19
+        versionName '3.9'
         multiDexEnabled true
     }
     buildTypes {
@@ -31,7 +31,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:support-v4:23.4.0'
     compile 'com.android.support:design:23.4.0'
-    compile 'com.google.android.gms:play-services:9.4.0'
+    compile 'com.google.android.gms:play-services:10.2.0'
     compile 'com.mikhaellopez:circularimageview:3.0.1'
     compile 'com.android.support:multidex:1.0.0'
     compile 'com.wdullaer:materialdatetimepicker:2.3.0'
@@ -52,7 +52,25 @@ dependencies {
     compile 'com.akexorcist:googledirectionlibrary:1.0.4'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.google.firebase:firebase-messaging:9.4.0'
+    compile 'com.theartofdev.edmodo:android-image-cropper:2.3.+'
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

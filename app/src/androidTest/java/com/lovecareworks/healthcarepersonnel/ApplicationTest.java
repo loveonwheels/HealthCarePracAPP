@@ -1,4 +1,4 @@
-package com.lovecareworks.healthcarepersonnel;
+package com.mSIHAT.hcp;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

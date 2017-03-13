@@ -6,7 +6,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ffffff">
+        android:background="#ffffff"
+        android:clickable="true">
 
         <TextView
             android:layout_width="wrap_content"
@@ -41,7 +42,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Click the image to set your application profile Image"
+                    android:text="Click the image to set your application profile Image, the image should show your face (i.e face should contain 2/3 of pictures) if image doesnt show in the box below please select another "
                     android:id="@+id/textView9"
                     android:textAlignment="center"
                     android:textColor="#000000" />
@@ -66,11 +67,27 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="@string/declaration"
+                        android:text="@string/termsandcond"
+                        android:id="@+id/textView42"
+                        android:textColor="#000000"
+                        android:textSize="16dp"
+                        android:textStyle="italic"
+                        android:clickable="true" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
                         android:id="@+id/textView8"
                         android:textColor="#000000"
                         android:textSize="12dp"
                         android:textStyle="italic" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="i have reviewed and accept the terms and conditions"
+                        android:id="@+id/radioButton" />
 
                     <TableLayout
                         android:layout_width="match_parent"
@@ -91,14 +108,9 @@
                                 <RadioButton
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="i agree"
-                                    android:id="@+id/radioButton" />
-
-                                <RadioButton
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
                                     android:text="i disagree"
-                                    android:id="@+id/radioButton2" />
+                                    android:id="@+id/radioButton2"
+                                    android:visibility="invisible" />
                             </RadioGroup>
 
                         </TableRow>
