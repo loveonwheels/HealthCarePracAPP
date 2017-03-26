@@ -12,11 +12,13 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +28,7 @@ import com.mSIHAT.hcp.R;
 import com.mSIHAT.hcp.Central;
 import com.mSIHAT.hcp.classes.hcpinfo;
 import com.mSIHAT.hcp.model.hcp_infoDate;
+import com.mSIHAT.hcp.registration.EmploymentAdder;
 import com.mSIHAT.hcp.webapi.RestUserService;
 import com.mikhaellopez.circularimageview.CircularImageView;
 import com.squareup.picasso.MemoryPolicy;
@@ -69,6 +72,7 @@ public class profile extends Fragment {
     private RestUserService restUserService = new RestUserService();
     private OnFragmentInteractionListener mListener;
     hcpinfo userinfo;
+    Button myserviceBtn,myequipmentBtn;
     public profile() {
         // Required empty public constructor
     }
@@ -98,6 +102,7 @@ public class profile extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -124,7 +129,25 @@ public class profile extends Fragment {
         EDTprofileExpDate= (TextView)view.findViewById(R.id.profile_ConDate);
                 EDTprofileDays= (TextView)view.findViewById(R.id.profile_RemDays);
 profileimage = (CircularImageView)view.findViewById(R.id.profileimage);
+myserviceBtn = (Button)view.findViewById(R.id.myserviceBtn);
+        myequipmentBtn = (Button)view.findViewById(R.id.myequipmentBtn);
+        myserviceBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager manager = getFragmentManager();
+                Myservice alertDialogFragment = new Myservice();
+                alertDialogFragment.show(manager,"myservice");
+            }
+        });
 
+        myequipmentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager manager = getFragmentManager();
+                Myequipment alertDialogFragment = new Myequipment();
+                alertDialogFragment.show(manager,"myequipment");
+            }
+        });
         profileimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

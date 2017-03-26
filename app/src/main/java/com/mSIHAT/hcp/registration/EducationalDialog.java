@@ -135,8 +135,8 @@ public class EducationalDialog extends DialogFragment {
 
         messagecheck();
         refreshlist();
-        ok = (Button) view.findViewById(R.id.btn_sch_ok);
-        cancel = (Button) view.findViewById(R.id.btn_sch_cancel);
+        ok = (Button) view.findViewById(R.id.btn_eqp_ok);
+        cancel = (Button) view.findViewById(R.id.btn_eqp_cancel);
         add = (Button) view.findViewById(R.id.button3);
         ok.setOnClickListener(new View.OnClickListener() {
             @Override

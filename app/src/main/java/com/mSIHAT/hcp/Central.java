@@ -1,6 +1,7 @@
 package com.mSIHAT.hcp;
 
 
+import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -149,8 +150,12 @@ public class Central extends AppCompatActivity {
 
                     SharedPreferences editor5 = getSharedPreferences(Constants.SHARED_DB, MODE_PRIVATE);
                  hcpid = editor5.getInt("userid",0);
+try{
+    getSupportActionBar().hide();
+}catch(Exception ex){
 
-            getSupportActionBar().hide();
+}
+
             drawerResult = Utils.createCommonDrawer(Central.this, headerResult);
             drawerimage = (CircularImageView) drawerResult.getHeader().findViewById(R.id.drawerimage);
             Picasso.with(main)
@@ -274,4 +279,10 @@ public class Central extends AppCompatActivity {
         });
     }
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        main = this;
+    }
 }

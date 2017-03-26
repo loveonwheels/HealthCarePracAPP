@@ -193,7 +193,7 @@
     </style>
 
     <style name="yourstyle" parent="@style/Base.TextAppearance.AppCompat.Title">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
     <style name="CustomDialog2" parent="android:Theme.DeviceDefault.Dialog">

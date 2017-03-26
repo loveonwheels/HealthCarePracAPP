@@ -434,7 +434,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="My Service Area"
-                    android:id="@+id/button5"
+                    android:id="@+id/myserviceBtn"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
                     android:textColor="#fefefe"
@@ -445,7 +445,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="My Equipments"
-                    android:id="@+id/button2"
+                    android:id="@+id/myequipmentBtn"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
                     android:textColor="#fefefe"
@@ -460,8 +460,9 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
                     android:textColor="#fefefe"
-                    android:background="@color/colorPrimary"
-                    android:visibility="visible" />
+                    android:background="@color/bright_foreground_disabled_material_light"
+                    android:visibility="visible"
+                    android:clickable="false" />
 
                 <Button
                     android:layout_width="match_parent"

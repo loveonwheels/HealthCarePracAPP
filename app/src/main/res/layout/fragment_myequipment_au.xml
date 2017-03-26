@@ -1,80 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:weightSum="1"
+    android:focusable="true">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:id="@+id/mainlayb"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:layout_gravity="center_horizontal"
+        android:padding="10dp"
+        android:layout_weight="0.15"
+        android:id="@+id/mainlay">
 
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/linearLayout2">
+
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:id="@+id/linearLayout"
+            android:layout_alignParentTop="true">
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_layout_emp_name"
+                android:id="@+id/input_layout_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/input_emp_name"
+                    android:id="@+id/input_ins_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="true"
                     android:textColor="@drawable/edit_text_selector"
-                    android:hint="Employer's name" />
+                    android:hint="Equipment Name"
+                    android:inputType="none"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_layout_emp_start_date"
+                android:id="@+id/input_layout_inst1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/input_emp_start_date"
+                    android:id="@+id/inst1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="true"
-                    android:inputType="none"
+                    android:textColor="@drawable/edit_text_selector"
                     android:editable="false"
-                    android:textColor="@drawable/edit_text_selector"
-                    android:hint="Start Date" />
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_layout_emp_to_date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/input_emp_to_date"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:singleLine="true"
                     android:inputType="none"
-                    android:editable="false"
-                    android:text="Present "
-                    android:textColor="@drawable/edit_text_selector"
-                    android:hint="To Date" />
+                    android:focusable="false"
+                    android:hint="Recommeded Price" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_layout_pos_held"
+                android:id="@+id/input_layout_inst2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/input_emp_position"
+                    android:id="@+id/inst2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="true"
+                    android:inputType="text"
                     android:textColor="@drawable/edit_text_selector"
-                    android:hint="Position held" />
+                    android:hint="Your quotation" />
             </android.support.design.widget.TextInputLayout>
+
 
         </LinearLayout>
 
@@ -82,21 +78,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:stretchColumns="*"
-            android:id="@+id/tableLayout4"
-            android:visibility="visible"
-            android:layout_below="@+id/linearLayout2">
+            android:id="@+id/addlay"
+            android:layout_below="@+id/linearLayout"
+            android:visibility="visible" >
 
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/button18"
+                android:layout_below="@+id/btn_eqp_cancel"
                 android:visibility="visible" >
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Ok"
-                    android:id="@+id/button17"
+                    android:id="@+id/btn_eqp_ok"
                     android:textColor="#ffffff"
                     android:drawableEnd="@drawable/ic_check_24dp"
                     android:background="@color/colorPrimary"
@@ -110,7 +106,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Cancel"
-                    android:id="@+id/button18"
+                    android:id="@+id/btn_eqp_cancel"
                     android:textColor="#ffffff"
                     android:background="@color/colorPrimary"
                     android:layout_marginLeft="2dp"
@@ -118,8 +114,9 @@
                     android:padding="10dp"
                     android:layout_marginRight="2dp"
                     android:textAlignment="textStart"
-                    android:layout_alignTop="@+id/button17"
-                    android:layout_toStartOf="@+id/button17" />
+                    android:layout_alignTop="@+id/btn_eqp_ok"
+                    android:layout_toStartOf="@+id/btn_eqp_ok" />
+
             </TableRow>
         </TableLayout>
 
@@ -127,10 +124,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:stretchColumns="*"
-            android:id="@+id/tableLayout5"
-            android:visibility="gone"
-            android:layout_below="@+id/linearLayout2"
-            android:layout_alignBottom="@+id/tableLayout4">
+            android:id="@+id/edtsave"
+            android:layout_below="@+id/linearLayout"
+            android:visibility="gone" >
 
             <TableRow
                 android:layout_width="wrap_content"
@@ -142,7 +138,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Save"
-                    android:id="@+id/button4b"
+                    android:id="@+id/btnSave"
                     android:textColor="#ffffff"
                     android:background="#288659"
                     android:layout_marginLeft="2dp"
@@ -157,7 +153,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Cancel"
-                    android:id="@+id/button5b"
+                    android:id="@+id/btnCan"
                     android:textColor="#ffffff"
                     android:background="@color/colorPrimary"
                     android:layout_marginLeft="2dp"
@@ -175,21 +171,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:stretchColumns="*"
-            android:id="@+id/tableLayout6"
-            android:visibility="gone"
-            android:layout_alignBottom="@+id/tableLayout4"
-            android:layout_below="@+id/linearLayout2">
+            android:id="@+id/editbtns"
+            android:layout_below="@+id/linearLayout"
+            android:visibility="gone">
 
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/btn_eqp_cancel">
+                android:layout_below="@+id/btn_eqp_cancel"
+                android:visibility="visible">
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Edit"
-                    android:id="@+id/button6b"
+                    android:id="@+id/btnEdit"
                     android:textColor="#ffffff"
                     android:background="#2851b0"
                     android:layout_marginLeft="2dp"
@@ -204,7 +200,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Delete"
-                    android:id="@+id/button7b"
+                    android:id="@+id/btnDel"
                     android:textColor="#ffffff"
                     android:background="#c13535"
                     android:layout_marginLeft="2dp"
@@ -219,7 +215,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Close"
-                    android:id="@+id/button8b"
+                    android:id="@+id/btnClose"
                     android:textColor="#ffffff"
                     android:background="@color/colorPrimary"
                     android:layout_marginLeft="2dp"
@@ -233,7 +229,5 @@
             </TableRow>
         </TableLayout>
 
-
     </RelativeLayout>
-
 </LinearLayout>
