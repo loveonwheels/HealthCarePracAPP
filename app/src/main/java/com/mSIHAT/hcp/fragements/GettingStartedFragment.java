@@ -156,7 +156,7 @@ public class GettingStartedFragment extends Fragment {
                 alertDialog.show();
             }
         });
-        webview.loadUrl("http://msihat.com/ISP_take_a_tour.html");
+        webview.loadUrl("http://www.msihat.com/ISP_take_a_tour.html");
         return view;
     }
 
